@@ -1,0 +1,730 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="AI,Learn," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="应用 中文机构名自动识别 中文词性标注 旅游领域命名实体识别 汉语分词系统 古汉语自动断句与标点方法 视觉目标跟踪 DDoS 攻击检测 中文科研论文信息抽取 大范围地形感知 开放领域新词发现 领域术语识别 自适应视频分割算法 汉语动宾搭配自动识别 复杂背景图像文本抽取 混合跳链条件随机场的异构Web 记录集成方法 汽车领域术语抽取 中文时间短语识别 有标记联合结构自动识别 蒙古语词切分研究 古汉语">
+<meta name="keywords" content="AI,Learn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Conditional Random Fields(CRF)条件随机场">
+<meta property="og:url" content="http://yoursite.com/2017/05/04/Conditional Random Fields(CRF)条件随机场/index.html">
+<meta property="og:site_name" content="又红又专模式">
+<meta property="og:description" content="应用 中文机构名自动识别 中文词性标注 旅游领域命名实体识别 汉语分词系统 古汉语自动断句与标点方法 视觉目标跟踪 DDoS 攻击检测 中文科研论文信息抽取 大范围地形感知 开放领域新词发现 领域术语识别 自适应视频分割算法 汉语动宾搭配自动识别 复杂背景图像文本抽取 混合跳链条件随机场的异构Web 记录集成方法 汽车领域术语抽取 中文时间短语识别 有标记联合结构自动识别 蒙古语词切分研究 古汉语">
+<meta property="og:updated_time" content="2017-07-15T09:18:49.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Conditional Random Fields(CRF)条件随机场">
+<meta name="twitter:description" content="应用 中文机构名自动识别 中文词性标注 旅游领域命名实体识别 汉语分词系统 古汉语自动断句与标点方法 视觉目标跟踪 DDoS 攻击检测 中文科研论文信息抽取 大范围地形感知 开放领域新词发现 领域术语识别 自适应视频分割算法 汉语动宾搭配自动识别 复杂背景图像文本抽取 混合跳链条件随机场的异构Web 记录集成方法 汽车领域术语抽取 中文时间短语识别 有标记联合结构自动识别 蒙古语词切分研究 古汉语">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/04/Conditional Random Fields(CRF)条件随机场/"/>
+
+
+
+
+
+  <title>Conditional Random Fields(CRF)条件随机场 | 又红又专模式</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">又红又专模式</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">又红又专模式</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/04/Conditional Random Fields(CRF)条件随机场/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Conditional Random Fields(CRF)条件随机场</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-04T16:24:00+08:00">
+                2017-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><ul>
+<li>中文机构名自动识别</li>
+<li>中文词性标注</li>
+<li>旅游领域命名实体识别</li>
+<li>汉语分词系统</li>
+<li>古汉语自动断句与标点方法</li>
+<li>视觉目标跟踪</li>
+<li>DDoS 攻击检测</li>
+<li>中文科研论文信息抽取</li>
+<li>大范围地形感知</li>
+<li>开放领域新词发现</li>
+<li>领域术语识别</li>
+<li>自适应视频分割算法</li>
+<li>汉语动宾搭配自动识别</li>
+<li>复杂背景图像文本抽取</li>
+<li>混合跳链条件随机场的异构Web 记录集成方法</li>
+<li>汽车领域术语抽取</li>
+<li>中文时间短语识别</li>
+<li>有标记联合结构自动识别</li>
+<li>蒙古语词切分研究</li>
+<li>古汉语词义消歧</li>
+<li>模型的语义角色标注</li>
+<li>图像分类</li>
+<li>中医命名实体识别</li>
+<li>汉语功能块自动标注</li>
+<li>网络入侵识别</li>
+<li>人名识别</li>
+<li>中文地址要素识别</li>
+<li>击键特征身份鉴别方法</li>
+<li>中医病历命名实体抽取</li>
+<li>冠词选择</li>
+<li>异常协议行为检测</li>
+<li>目标跟踪</li>
+<li>道路检测</li>
+<li>微博热点话题跟踪</li>
+<li>中文医疗机构名识别</li>
+<li>企业简称预测</li>
+<li>运动轨迹填补方法</li>
+</ul>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p> 是一种概率图模型<br>是一种用于标注和切分有序数据的条件概率模型<br>是一种用于在给定了指定输入结点值时计算指定输出结点值的概率的无向图模型，具有表达长距离依赖性和交叠性特征的能力。<br>随机场：可以看成是一组随机变量的集合（这组随机变量对应同一个样本空间）。当给每个位置按照某咱分布随机赋予一个值之后，其全体就叫做随机场。当然，这些随机变量这间可能有依赖关系，一般来说，也只有当这引起变量这间有信赖关系的进修，我们将其单独拿出来看成一个随机场才有实际意义。</p>
+<p>条件随机场是逻辑回归的序列化版本。<br>逻辑回归是用于分类的对数线性模型<br>条件随机场是用于序列化标注的对数线性模型</p>
+<h1 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h1><p>需要大量手工标注样本和难以处理数据元素间复杂依赖关系</p>
+<p>赵孽：</p>
+<blockquote>
+<h2 id="标注看上去就好像是在序列上做分类。"><a href="#标注看上去就好像是在序列上做分类。" class="headerlink" title="标注看上去就好像是在序列上做分类。"></a>标注看上去就好像是在序列上做分类。</h2><p>然而实际上标跟分类最大的区别就是：标注采的特征里面有上下文分类结果，这个结果你是不知道的，他在“分类”的时候是跟上下文一起“分类”的。因为你要确定这个词的分类得先知道上一个词的分类，所以这个得整句话的所有词一起解，没法一个词一个词解。<br>而分类是根据当前特征确定当前类别，分类的时候不需要考虑上下文的分类结果，但可以引入上下文的特征。</p>
+<h2 id="什么是随机场"><a href="#什么是随机场" class="headerlink" title="什么是随机场"></a>什么是随机场</h2><p>一组随机变量，他们的样本空间一样，那么就是随机场。当这些随机变量之间有依赖关系的时候，对我们来说才是有意义的。<br>例如：<br>我们利用这些随机变量之间的关系建模实际问题中的相关关系，实际问题中我们可能只知道这个变量之间有相关关系，但并不知道具体是多少，我们想知道这些依赖关系具体是什么样的，于是我们就把关系图画出来，然后通过实现数据训练去把具体的相关关系训练出来嵌入到图里，然后用得到的这个图去进行预测、去reference等很多事情。<br><strong>把相关关系图画出来，通过实际数据训练把具体的相关关系训练出来嵌入到图里，然后用得到的图。。。</strong></p>
+<h2 id="马尔科夫随机场"><a href="#马尔科夫随机场" class="headerlink" title="马尔科夫随机场"></a>马尔科夫随机场</h2><p>为了使画出来的图满足一系列方便的性质便于使用（简化），我们在画图的时候遵循一引起假设和规则，比如马尔科夫独立性假设。<br>边可以传递信息，点与点之间通过边相互影响，如果观测到一个节点的取值或都这个节点的取值是常量，那么别的节点炫耀无法通过这个节点来影响其它节点<br>贝叶斯网络要判断两点之间独立还要看有没有v-structure，还要看边的指向。</p>
+<blockquote>
+<p>如何建模<br>贝叶斯网络每一条边是一个条件概率分布，P(X|Y)，不知道（或不想假设）具体是谁依赖谁，这个时候贝叶斯就画不出来图了。<br>马尔可夫随机场用联合分布直接表达这三个变量之间的关系<br>等价于吉布斯分布：整个图的联合概率分布就是这些最大子团的联合概率分布的乘积<br>再除一个归一化因子和就归一化了<br>最终是一个联合概率，每个子团记载的都是因子，是没归一化的概率，严格大于零，可以大于一。但关键是依赖关系、这些相关关系已经encode在里面了。</p>
+<h2 id="条件随机场"><a href="#条件随机场" class="headerlink" title="条件随机场"></a>条件随机场</h2><p>这个图里面一些点我已经观测到了，求，在我观测到这些点的前提下，整张图的分布是怎样的。<br>马尔科夫随机场跟贝叶斯网络一样都是产生式模型，条件随机场才是判别式模型。</p>
+</blockquote>
+</blockquote>
+<h2 id="由实际问题出发，学习路径"><a href="#由实际问题出发，学习路径" class="headerlink" title="由实际问题出发，学习路径"></a>由实际问题出发，学习路径</h2><p>条件随机场-&gt;隐马-&gt;马尔科夫随机场独立性-&gt;EM-&gt;最大熵-&gt;<strong>概率图模型</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AI/" rel="tag"># AI</a>
+          
+            <a href="/tags/Learn/" rel="tag"># Learn</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/04/共识机制/" rel="next" title="共识机制">
+                <i class="fa fa-chevron-left"></i> 共识机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/12/概率图模型(PGM)/" rel="prev" title="概率图模型(PGM)">
+                概率图模型(PGM) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div id="sidebar-dimmer"></div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="又红又专模式" />
+          <p class="site-author-name" itemprop="name">又红又专模式</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#应用"><span class="nav-number">1.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缺点："><span class="nav-number">3.</span> <span class="nav-text">缺点：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标注看上去就好像是在序列上做分类。"><span class="nav-number">3.1.</span> <span class="nav-text">标注看上去就好像是在序列上做分类。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是随机场"><span class="nav-number">3.2.</span> <span class="nav-text">什么是随机场</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#马尔科夫随机场"><span class="nav-number">3.3.</span> <span class="nav-text">马尔科夫随机场</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件随机场"><span class="nav-number">3.4.</span> <span class="nav-text">条件随机场</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#由实际问题出发，学习路径"><span class="nav-number">3.5.</span> <span class="nav-text">由实际问题出发，学习路径</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">又红又专模式</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

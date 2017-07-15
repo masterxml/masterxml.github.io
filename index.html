@@ -175,7 +175,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">又红又专模式</p>
       
   </div>
 
@@ -253,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/12/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/28/跨平台移动开发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="又红又专模式">
@@ -272,7 +272,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/12/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2017/06/28/跨平台移动开发/" itemprop="url">跨平台移动开发</a></h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T07:49:50+08:00">
-                2017-07-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-28T07:40:00+08:00">
+                2017-06-28
               </time>
             
 
@@ -321,15 +321,1279 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <p>以下参考：<a href="http://www.infoq.com/cn/articles/mobile-cross-platform-app-development" target="_blank" rel="external">InfoQ:跨平台移动应用开发的优势与不足</a></p>
+<h2 id="两种类型的跨平台应用："><a href="#两种类型的跨平台应用：" class="headerlink" title="两种类型的跨平台应用："></a>两种类型的跨平台应用：</h2><ol>
+<li>原生跨平台应用</li>
+<li>混合（hybrid）HTML 5跨平台应用<h2 id="移动端的主要任务"><a href="#移动端的主要任务" class="headerlink" title="移动端的主要任务"></a>移动端的主要任务</h2><blockquote>
+<ul>
+<li>如今，创建跨平台的原生应用尽管是可行的，但是当前的实现状况离完成还差的很远。大多数移动应用的重心都是<strong>GUI</strong>（图形化用户界面）的实现。几乎所有的<strong>关键业务应用逻辑</strong>都位于服务端，移动端会通过Web服务访问服务端的业务逻辑。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>大致来讲，在移动应用中，尤其是在业务流程自动化领域，<strong>大约60%</strong>的代码都是在处理<strong>GUI的创建和管理</strong>。<h2 id="原生跨平台"><a href="#原生跨平台" class="headerlink" title="原生跨平台"></a>原生跨平台</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
+<p>因为iOS和Android在用户界面（User Interface，UI）和用户体验设计（User Experience Design，UXD）上有着很大的差异，所以为其创建一个统一的GUI包装器并不是一项简单的任务。尽管Xamarin和其他的厂商在这方面已经做了很多超前的工作，但是<strong>离完美还差得很远</strong>。如果你能够在框架的限制下设计应用的话，那么它能运行良好，如果你所需要的内容不匹配框架的愿景的话，那么就需要很多额外的工作，并且要编写平台相关的代码。</p>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p>在原生跨平台开发中，一种很流行的方式就是使用跨平台库来编写业务<strong>逻辑和Web服务</strong>，而<strong>GUI相关的代码</strong>使用平台特定的库来编写。根据应用的不同，这样能够实现<strong>30%到60%的代码重用</strong>。</p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>|名称|发布时间|主要语言|特点|<br>|—|—|—|—|<br>|Xamarin|2011|c#|M$的支持，使用现有C#开发人员|<br>|Appcelerator Titanium|2012|javascript|Web开发范式, 收费的MBaaS（移动后端即服务），很多问题|<br>|NativeScript|2014|Javascript|很新，但是很有潜力|<br>|QT|1995, 2013iOS和Android|C++与QML|历史最悠久, C++难掌握|<br>|RubyMotion|2012,2014iOS和Android|Ruby|需要为iOS和Android编写独立的GUI代码，但是业务逻辑可以跨平台重用|</p>
+<h2 id="混合HTML5跨平台"><a href="#混合HTML5跨平台" class="headerlink" title="混合HTML5跨平台"></a>混合HTML5跨平台</h2><h3 id="方式和特点"><a href="#方式和特点" class="headerlink" title="方式和特点"></a>方式和特点</h3><ul>
+<li>不管iOS、Android，还是Windows Phone，在它们的SDK中都包含了一个非常高级的浏览器组件。借助这个<strong>WebView组件</strong>，程序员能够使用标准的HTML5 Web技术实现对应用的设计和编码。最终，在应用的组成中，至少会有一个<strong>原生frame</strong>还会有在WebView中执行的HTML/JavaScript——这也是为什么它们被称为“混合”应用。</li>
+</ul>
+</blockquote>
+</li>
+<li>在需要传感器输入的特性中，比如地理位置、摄像头，以及像访问文件系统这样的底层的功能，通常会使用混合应用框架所提供的<strong>JavaScript-to-native桥</strong>。</li>
+</ul>
+<h3 id="混合应用的架构-Cordova-PhoneGap"><a href="#混合应用的架构-Cordova-PhoneGap" class="headerlink" title="混合应用的架构/Cordova/PhoneGap"></a>混合应用的架构/Cordova/PhoneGap</h3><p><img src="http://cdn2.infoqstatic.com/statics_s1_20170620-0701/resource/articles/mobile-cross-platform-app-development/zh/resources/10.jpg" alt="image_1bjm1jsp216j8kh3jfj1o31qlr9.png-157.4kB"></p>
+<ol>
+<li>借助像framework7（<a href="http://framework7.io/）这样的库，我们甚至有可能使用基于CSS的主题来**支持底层操作系统的默认外观**。" target="_blank" rel="external">http://framework7.io/）这样的库，我们甚至有可能使用基于CSS的主题来**支持底层操作系统的默认外观**。</a></li>
+<li><strong>打包到应用内</strong>（在混合应用中，HTML、CSS和JavaScript代码是随着应用一起发布的。因此，加载UI相关的代码并没有延迟，这与通过网络加载Web站点是不同的。）</li>
+<li>在现代功能强大的手机上，我们可以使用HTML 5技术创建出很<strong>炫酷的UI</strong>。</li>
+<li>尤其是对于B2B应用，通过使用Cordova，有可能实现<strong>85-90%的跨平台代码重用</strong>。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>应用开发的所有可选方案<br><img src="http://cdn2.infoqstatic.com/statics_s1_20170620-0701/resource/articles/mobile-cross-platform-app-development/zh/resources/11.jpg" alt="应用开发的所有可选方案"></p>
+<h3 id="跨平台移动应用优势与不足"><a href="#跨平台移动应用优势与不足" class="headerlink" title="跨平台移动应用优势与不足"></a>跨平台移动应用优势与不足</h3><table>
+<thead>
+<tr>
+<th>—</th>
+<th>不足</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>H5混合在中低手机反应迟钝</td>
+<td>硬件能力来执行流畅的HTML5动画</td>
+</tr>
+<tr>
+<td>2</td>
+<td>H5混合更耗电</td>
+<td>渲染现代的HTML和CSS会用到像渐变这样的高级特性，它会使用大量的CPU和GPU资源</td>
+</tr>
+<tr>
+<td>3</td>
+<td>代码更复杂</td>
+<td>HTML5混合应用依赖于回调风格的编程</td>
+</tr>
+<tr>
+<td>4</td>
+<td>难于实现特定平台的外观和体验</td>
+<td>原生跨平台应用的SDK还不成熟</td>
+</tr>
+<tr>
+<td>5</td>
+<td>很多成功的应用都是原生应用</td>
+<td>设计和构建一款针对多种平台的应用实在是很困难，这些平台都有特定的用户体验方式。所有的平台都定义了自己的人机界面指南</td>
+</tr>
+<tr>
+<td>6</td>
+<td>跟不上移动操作系统的升级</td>
+<td>移动操作系统正在以很快的速度演进。每年会有越来越多的特性添加进来，这为跨平台SDK厂商带来了很多的工作，因为他们需要在操作系统新版本发布之后的很短的时间内，就拿出SDK的新版本。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>—</th>
+<th>优势</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>更快和降低成本</td>
+<td>50%-80%的代码重用</td>
+</tr>
+<tr>
+<td>2</td>
+<td>好维护</td>
+<td>如果在通用代码库中发现了bug，我们只需修正一次即可。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>易于单元测试</td>
+<td>通用的代码，只需编写一次单元测试</td>
+</tr>
+<tr>
+<td>4</td>
+<td>学习成本低</td>
+<td>我们可以使用已有的编程技能</td>
+</tr>
+<tr>
+<td>5</td>
+<td>更好的上线时间和资源利用率</td>
+<td>B2B应用和业务流程自动化应用来说，它比外观和体验更为重要</td>
+</tr>
+</tbody>
+</table>
+<h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><ul>
+<li>We used Xamarin forms and shared 95% code cross platforms. [Ritesh Patil]</li>
+<li>Xamarin is good, How much code reuse is possible, depends on the UI desiong and the type of the app you are developing. [Ritesh Patil]</li>
+<li>Xamarin are more than “backed by Microsoft”, they have been acquired and are full owned by Microsoft</li>
+<li>H5的跨平台方案，基本认为是失败的</li>
+</ul>
+<hr>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/15/概念笔记二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/15/概念笔记二/" itemprop="url">概念笔记二</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-15T16:08:00+08:00">
+                2017-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="边际效用-维基百科，自由的百科全书"><a href="#边际效用-维基百科，自由的百科全书" class="headerlink" title="边际效用- 维基百科，自由的百科全书"></a><a href="https://zh.wikipedia.org/zh-cn/%E8%BE%B9%E9%99%85%E6%95%88%E7%94%A8" target="_blank" rel="external">边际效用- 维基百科，自由的百科全书</a></h2><p> 经济学通常认为，随着商品或服务的量增加，边际效用将会逐步减少，称为边际效应递减定律。 在这里要注意的是，边际效用是指某种物品的消费量每增加一单位所增加的满足程度，针对的是消费者；而边际报酬（marginal returns）则对应生产者。<br> 边际收益递增是指在知识依赖型经济中，随着知识与技术要素投入的增加，产出越多，生产者的收益呈递增趋势明显。这一规律以知识经济为背景，在知识依赖型经济中生产要素简化成知识性投入和其它物质性投入</p>
+<h2 id="5月23日-小公司要眼高手低"><a href="#5月23日-小公司要眼高手低" class="headerlink" title="5月23日 小公司要眼高手低"></a>5月23日 小公司要眼高手低</h2><p>眼要高：制定远期（20年后的）目标<br>手要低：制定6个月的短期计划</p>
+<ul>
+<li>成功学就是个算法，任何可以用“if then”做出的判断都是算法，这样的人只是工具，只会执行，不是决策。<br>–万维钢：读书到底有什么用。</li>
+<li>哪里有监管，哪里就有商机</li>
+<li>最新的，最前沿的技术往往最先被黄赌毒等使用<h2 id="6-7-泛娱乐："><a href="#6-7-泛娱乐：" class="headerlink" title="6.7 泛娱乐："></a>6.7 泛娱乐：</h2></li>
+<li>以IP（Intellectual Property）打造为核心的“泛娱乐</li>
+<li>以IP授权为轴心、以游戏运营和网络平台为基础的跨领域、多平台的商业拓展模式</li>
+<li>基于互联网与移动互联网的多领域共生，打造明星IP的粉丝经济</li>
+<li>这一概念最早由腾讯集团副总裁程武于2011年提出。</li>
+</ul>
+<p><img src="http://static.zybuluo.com/liuruicai/4tzxvfy7h3tpv7h6f83e7hz9/image_1bi0909071jgm1q701jqv16qh6ur9.png" alt="image_1bi0909071jgm1q701jqv16qh6ur9.png-408.3kB"></p>
+<h2 id="格局"><a href="#格局" class="headerlink" title="格局"></a><a href="https://www.zhihu.com/question/20200959" target="_blank" rel="external">格局</a></h2><ul>
+<li>人在不同规模、不同人群、不同空间、不同时间，等不同维度下，定义目标的坐标、权衡利弊的角度，配置资源的优先级就是人的格局。</li>
+<li>取决于你的人生目标、拥有资源和所处地位。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/SMTP 触发邮件发送/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/12/SMTP 触发邮件发送/" itemprop="url">SMTP 触发邮件发送</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T10:38:00+08:00">
+                2017-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>发件人策略框架（英语：Sender Policy Framework；简称SPF；RFC4408）是一个电子邮件验证系统，目的是解决电子邮件伪造。SPF允许管理员设定一个DNS TXT记录或SPF记录设定发送邮件服务器的IP范围。</p>
+</li>
+<li><p>SPF 是为了防范垃圾邮件而提出来的一种 DNS 记录类型, 用于登记某个域名拥有的外发邮件的所有 IP 地址<br>MX 是邮件交换记录, 它指向一个邮件服务器, 用于电子邮件系统发邮件时根据收信人的地址后缀来定位邮件服务器</p>
+</li>
+<li><p>CNAME 是链接跳转记录. SendCloud 需要此配置项来收集点击数据.</p>
+</li>
+<li><p>DKIM 是防止欺诈邮件的一个重要技术手段, 通常发送方会在电子邮件的标头插入 DKIM-Signature 及电子签名资讯, 而接收方则透过 DNS 查询得到公钥后进行验证. 建议配置, 特别是国外域比较多的用户.</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/03/Docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/03/Docker/" itemprop="url">Docker</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T09:51:00+08:00">
+                2017-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="镜像Image"><a href="#镜像Image" class="headerlink" title="镜像Image"></a>镜像Image</h1><ul>
+<li>不包含任何动态数据，其内容在构建之后也不会被改变</li>
+<li>是一个特殊的文件系统</li>
+<li>它包含操作系统完整的root文件系统</li>
+<li>它不是一个具体的像ISO那样的打包文件，而是一个虚拟的概念，不是一个文件，而是由一组文件系统组成。</li>
+<li>镜像一层一层构建。后一层上的任何改变只发生在自己这一层，</li>
+<li>删除前一层文件的操作公是在妆前层票房为该文件已删除。<h1 id="容器Container"><a href="#容器Container" class="headerlink" title="容器Container"></a>容器Container</h1></li>
+<li>Container是Image运行时的实体，Image是静态的定义。像是面向对象中类和实例的关系</li>
+<li>容器的实质是进程，但容器的进程运行于属于自己的独立的命名空间</li>
+<li>容器运行时，是以镜像为基础层，在其上创建一个当前容器的存储层。</li>
+<li>容器存储都将随窗口消亡时消失。</li>
+<li>容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。</li>
+<li>文件的写入操作，都应该使用数据卷、或绑定宿主目录<h1 id="Linux-Namespace"><a href="#Linux-Namespace" class="headerlink" title="Linux Namespace"></a>Linux Namespace</h1>Linux内核中提供了这六种namespace隔离的系统调用。</li>
+<li>UTS:隔离主机名与域名</li>
+<li>IPC:信号量、消息队列和共享内存</li>
+<li>PID:进程编号</li>
+<li>Network:网络设备、网络栈、端口</li>
+<li>Mount:挂载点</li>
+<li>User:用户和用户组</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/24/群的拓扑结构多种多样，网状结构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/24/群的拓扑结构多种多样，网状结构/" itemprop="url">群的拓扑结构多种多样，网状结构</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T10:14:00+08:00">
+                2017-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>拓扑：</p>
+<ul>
+<li>一个数据的分支：拓扑学(topology)</li>
+<li>是拓扑涫中定义的一个数据概念：拓扑空间</li>
+<li>应用于计算机通信和网络领域：网络拓扑<br><img src="http://static.zybuluo.com/liuruicai/rhxtd32dk1znq1mcol2a5j28/image_1bgs448bj1acr1fto9h7gs0kfd9.png" alt="image_1bgs448bj1acr1fto9h7gs0kfd9.png-64.8kB"></li>
+<li>指网络上电脑、缆线、集线器以及其它设备所组成的整体配置方式。</li>
+</ul>
+<p>拓扑学（位相几何学）：是一门研究拓扑空间的学科，主要研究空间内，在连续变化（如拉伸或弯曲，蛤不包括撕开或黏合）下维持不变的性质。在拓扑学里，重要的性质包括连通性与紧致性。<br><img src="http://static.zybuluo.com/liuruicai/n46146jo16w1wyhsh1aj108z/image_1bgs4ggo0176qf9mf2r1ofg318m.png" alt="image_1bgs4ggo0176qf9mf2r1ofg318m.png-1038.6kB"><br>莫比乌斯带，只有一个面与一个边，为拓扑学所研究之一类物件。<br><img src="http://static.zybuluo.com/liuruicai/t5w30jsvn8s7y0edbwy8o4rw/image_1bgs4ipaj169s1bn41a0vbesk9m16.png" alt="image_1bgs4ipaj169s1bn41a0vbesk9m16.png-116.6kB"><br>三叶结是最简单的非平凡纽结。<br><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Mug_and_Torus_morph.gif" alt="此处输入图片的描述"><br>在拓扑学中，一个杯子和一个面包圈（实心环面）是相同的</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/条件概率分布/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/12/条件概率分布/" itemprop="url">条件概率分布</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T16:47:00+08:00">
+                2017-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p><a href="https://www.zhihu.com/question/35866596/answer/74187736" target="_blank" rel="external">条件随机场-&gt;马尔可夫随机场</a><br>贝叶斯网络每一条边是一个条件概率分布，P(X|Y)，条件是父节点、结果是子节点。他有一个问题，就是当我知道A、B、C三个变量之间有相关关系，但是不知道具体是谁依赖谁，或者我不想先假设谁依赖谁，这个时候贝叶斯就画不出来图了。因为贝叶斯网络是通过变量之间的条件分布来建模整个网络的，相关关系是通过依赖关系（条件分布）来表达的。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>条件概率分布（Conditional Probability Distribution，或者 条件分布，Conditional Distribution ）是现代概率论中的概念。已知两个相关的随机变量X 和Y，随机变量Y 在条件{X =x}下的条件概率分布是指当已知X 的取值为某个特定值x之时，Y 的概率分布。 如果Y 在条件{X =x}下的条件概率分布是连续分布，那么其密度函数称作Y 在条件{X =x}下的条件概率密度函数（条件分布密度、条件密度函数）。与条件分布有关的概念，常常以“条件”作为前缀，如条件期望、条件方差等等。</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>假设在桌子上抛掷一枚普通的骰子，则其点数结果的概率分布是集合 {\displaystyle {1,2,3,4,5,6}} {1,2,3,4,5,6}的均匀分布：每个点数出现的概率都是均等的六分之一。然而，如果据某个坐在桌边的人观察，向着他的侧面是6点，那么，在此条件下，向上的一面不可能是6点，也不可能是6点对面的1点。因此，在此条件下，抛骰子的点数结果是集合 {\displaystyle {2,3,4,5}} {2,3,4,5}的均匀分布：有四分之一的可能性出现 {\displaystyle 2,3,4,5} 2,3,4,5四种点数中的一种。可以看出，增加的条件或信息量（某个侧面是6点）导致了点数结果的概率分布的变化。这个新的概率分布就是条件概率分布。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/深度学习-与-概率图模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/12/深度学习-与-概率图模型/" itemprop="url">深度学习 与 概率图模型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T16:09:00+08:00">
+                2017-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.csdn.net/article/2015-04-30/2824600" target="_blank" rel="external">CMU博士、MIT博士后及vision.ai联合创始人Tomasz Malisiewicz</a></p>
+<h2 id="人工智能领域三大范式"><a href="#人工智能领域三大范式" class="headerlink" title="人工智能领域三大范式"></a>人工智能领域三大范式</h2><ol>
+<li>逻辑学</li>
+<li>概率方法</li>
+<li>深度学习<br>的演变历程 </li>
+</ol>
+<h2 id="概率方法："><a href="#概率方法：" class="headerlink" title="概率方法："></a>概率方法：</h2><ul>
+<li>概率图模型是图论与概率方法的结合产物，2000年代中期它们都曾在机器学习研究人员中风靡一时。</li>
+<li>概率图模型的计算方法介绍（视频和PPT下载）Dato CEO，Carlos Guestrin教授<br>如果你觉得深度学习能够解决所有机器学习问题，真得好好看看上面的视频。如果你正在构建一套推荐系统，一个健康数据分析平台，设计一个新的交易算法，或者开发下一代搜索引擎，图模型都是完美的起点。<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2>强调了如今那些成功的机器学习算法中的<strong>网络架构</strong>。这些方法都是基于包含很多隐藏层的“深”多层神经网络</li>
+</ul>
+<p>我真的十分好奇Yann究竟是如何早在1998年就把他的深度模型折腾出一些东西。毫不奇怪，我们大伙儿还得再花十年来消化这些内容。</p>
+<h1 id="两者结合"><a href="#两者结合" class="headerlink" title="两者结合"></a>两者结合</h1><p>MIT的deep learning书中part 3从Chap 16 - 20的内容，介绍的都是如何把概率图模型的方法应用在deep learning上。 附上书的链接web版: <a href="http://www.deeplearningbook.org/" target="_blank" rel="external">Deep Learning</a>, github上整合得pdf文件:<a href="https://github.com/HFTrader/DeepLearningBook" target="_blank" rel="external">GitHub - HFTrader/DeepLearningBook: MIT Deep Learning Book in PDF format.</a></p>
+<p>deep learning也是一种图模型，有向图。<br>其实个人觉得还是bayesian有前途。<br>推荐bayesian的原因是，这玩意即可以和dl结合作为研究热点，本身坑又多，你看搞MCMC的有几篇，搞VI的文章也有几篇，研究高斯过程的还有，不算这些，直接带bayesian字样的就有十篇嘛</p>
+<p>选图模型，深度学习根本不难，就是堆硬件。<br>概率图直接解释事物本质联系，完爆深度学习。<br>就目前来说，图模型在理论成熟程度上更好一点，深度学习理论并不深，更多是工程方面的trick与启发性的idea</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/概率图模型(PGM)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/12/概率图模型(PGM)/" itemprop="url">概率图模型(PGM)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T14:50:00+08:00">
+                2017-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>谢澎涛：</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
+<li>概率图模型大致可以分为两种，directed graphical model(又称贝叶斯网络）和undirected graphical model（又称马尔可夫随机场）</li>
+<li>PGM（同支持向量机、决策树、bosting一起）是将人工智能的研究热点从传统AI（逻辑，推理，知识表示）转向机器学习的重要工作</li>
+</ul>
+<h1 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h1><p>隐马尔可夫模型（HMM）是语音识别的支柱模型<br>高斯混合模型（GMM）及其变种K-means是数据聚类的最基本模型<br>条件随机场（CRF）广泛应用于自然语言处理（如词性标注，命名实体识别）<br>Ising模型获得过诺贝尔奖<br>话题模型在工业界大量使用(如腾讯的推荐系统）</p>
+<h1 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h1><p>PGM是一个概率分布，<br>图中的结点对应于随机变量，<br>边对应于随机变量的dependency或者correlation关系</p>
+<h1 id="使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识"><a href="#使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识" class="headerlink" title="使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识"></a>使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识</h1><p>构建一个图<br>用观测点表示观测到的数据，<br>用隐含结点表示潜在的知识，<br>用边来描述知识与数据的相互关系，<br>最后获得一个概率分布。<br>给定概率分布之后，通过进行两个任务来获取知识：</p>
+<ol>
+<li>inference(给定观测结点，推断隐含结点的后验分布)</li>
+<li>learning(学习这个概率分布的参数)</li>
+</ol>
+<h1 id="强大之处在于："><a href="#强大之处在于：" class="headerlink" title="强大之处在于："></a>强大之处在于：</h1><p>不管数据和知识多复杂，我们的处理手段是一样的：<br>建一个图，定义一个概率分布，进行inference和learning</p>
+<p>#系统学习：<br>推荐CMU Eric Xing教授每年开的10708 PGM课程 <a href="http://www.cs.cmu.edu/~epxing/Class/10708-14/lecture.html" target="_blank" rel="external">10708 Probabilistic Graphical Models</a>。 既包含了PGM最基本、最核心的内容，也讲述了很多advanced topic。而且有视频。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/04/Conditional Random Fields(CRF)条件随机场/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/04/Conditional Random Fields(CRF)条件随机场/" itemprop="url">Conditional Random Fields(CRF)条件随机场</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-04T16:24:00+08:00">
+                2017-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><ul>
+<li>中文机构名自动识别</li>
+<li>中文词性标注</li>
+<li>旅游领域命名实体识别</li>
+<li>汉语分词系统</li>
+<li>古汉语自动断句与标点方法</li>
+<li>视觉目标跟踪</li>
+<li>DDoS 攻击检测</li>
+<li>中文科研论文信息抽取</li>
+<li>大范围地形感知</li>
+<li>开放领域新词发现</li>
+<li>领域术语识别</li>
+<li>自适应视频分割算法</li>
+<li>汉语动宾搭配自动识别</li>
+<li>复杂背景图像文本抽取</li>
+<li>混合跳链条件随机场的异构Web 记录集成方法</li>
+<li>汽车领域术语抽取</li>
+<li>中文时间短语识别</li>
+<li>有标记联合结构自动识别</li>
+<li>蒙古语词切分研究</li>
+<li>古汉语词义消歧</li>
+<li>模型的语义角色标注</li>
+<li>图像分类</li>
+<li>中医命名实体识别</li>
+<li>汉语功能块自动标注</li>
+<li>网络入侵识别</li>
+<li>人名识别</li>
+<li>中文地址要素识别</li>
+<li>击键特征身份鉴别方法</li>
+<li>中医病历命名实体抽取</li>
+<li>冠词选择</li>
+<li>异常协议行为检测</li>
+<li>目标跟踪</li>
+<li>道路检测</li>
+<li>微博热点话题跟踪</li>
+<li>中文医疗机构名识别</li>
+<li>企业简称预测</li>
+<li>运动轨迹填补方法</li>
+</ul>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p> 是一种概率图模型<br>是一种用于标注和切分有序数据的条件概率模型<br>是一种用于在给定了指定输入结点值时计算指定输出结点值的概率的无向图模型，具有表达长距离依赖性和交叠性特征的能力。<br>随机场：可以看成是一组随机变量的集合（这组随机变量对应同一个样本空间）。当给每个位置按照某咱分布随机赋予一个值之后，其全体就叫做随机场。当然，这些随机变量这间可能有依赖关系，一般来说，也只有当这引起变量这间有信赖关系的进修，我们将其单独拿出来看成一个随机场才有实际意义。</p>
+<p>条件随机场是逻辑回归的序列化版本。<br>逻辑回归是用于分类的对数线性模型<br>条件随机场是用于序列化标注的对数线性模型</p>
+<h1 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h1><p>需要大量手工标注样本和难以处理数据元素间复杂依赖关系</p>
+<p>赵孽：</p>
+<blockquote>
+<h2 id="标注看上去就好像是在序列上做分类。"><a href="#标注看上去就好像是在序列上做分类。" class="headerlink" title="标注看上去就好像是在序列上做分类。"></a>标注看上去就好像是在序列上做分类。</h2><p>然而实际上标跟分类最大的区别就是：标注采的特征里面有上下文分类结果，这个结果你是不知道的，他在“分类”的时候是跟上下文一起“分类”的。因为你要确定这个词的分类得先知道上一个词的分类，所以这个得整句话的所有词一起解，没法一个词一个词解。<br>而分类是根据当前特征确定当前类别，分类的时候不需要考虑上下文的分类结果，但可以引入上下文的特征。</p>
+<h2 id="什么是随机场"><a href="#什么是随机场" class="headerlink" title="什么是随机场"></a>什么是随机场</h2><p>一组随机变量，他们的样本空间一样，那么就是随机场。当这些随机变量之间有依赖关系的时候，对我们来说才是有意义的。<br>例如：<br>我们利用这些随机变量之间的关系建模实际问题中的相关关系，实际问题中我们可能只知道这个变量之间有相关关系，但并不知道具体是多少，我们想知道这些依赖关系具体是什么样的，于是我们就把关系图画出来，然后通过实现数据训练去把具体的相关关系训练出来嵌入到图里，然后用得到的这个图去进行预测、去reference等很多事情。<br><strong>把相关关系图画出来，通过实际数据训练把具体的相关关系训练出来嵌入到图里，然后用得到的图。。。</strong></p>
+<h2 id="马尔科夫随机场"><a href="#马尔科夫随机场" class="headerlink" title="马尔科夫随机场"></a>马尔科夫随机场</h2><p>为了使画出来的图满足一系列方便的性质便于使用（简化），我们在画图的时候遵循一引起假设和规则，比如马尔科夫独立性假设。<br>边可以传递信息，点与点之间通过边相互影响，如果观测到一个节点的取值或都这个节点的取值是常量，那么别的节点炫耀无法通过这个节点来影响其它节点<br>贝叶斯网络要判断两点之间独立还要看有没有v-structure，还要看边的指向。</p>
+<blockquote>
+<p>如何建模<br>贝叶斯网络每一条边是一个条件概率分布，P(X|Y)，不知道（或不想假设）具体是谁依赖谁，这个时候贝叶斯就画不出来图了。<br>马尔可夫随机场用联合分布直接表达这三个变量之间的关系<br>等价于吉布斯分布：整个图的联合概率分布就是这些最大子团的联合概率分布的乘积<br>再除一个归一化因子和就归一化了<br>最终是一个联合概率，每个子团记载的都是因子，是没归一化的概率，严格大于零，可以大于一。但关键是依赖关系、这些相关关系已经encode在里面了。</p>
+<h2 id="条件随机场"><a href="#条件随机场" class="headerlink" title="条件随机场"></a>条件随机场</h2><p>这个图里面一些点我已经观测到了，求，在我观测到这些点的前提下，整张图的分布是怎样的。<br>马尔科夫随机场跟贝叶斯网络一样都是产生式模型，条件随机场才是判别式模型。</p>
+</blockquote>
+</blockquote>
+<h2 id="由实际问题出发，学习路径"><a href="#由实际问题出发，学习路径" class="headerlink" title="由实际问题出发，学习路径"></a>由实际问题出发，学习路径</h2><p>条件随机场-&gt;隐马-&gt;马尔科夫随机场独立性-&gt;EM-&gt;最大熵-&gt;<strong>概率图模型</strong></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/共识机制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/04/04/共识机制/" itemprop="url">共识机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T16:00:00+08:00">
+                2017-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://yeasy.gitbooks.io/blockchain_guide/content/bitcoin/consensus.html" target="_blank" rel="external">https://yeasy.gitbooks.io/blockchain_guide/content/bitcoin/consensus.html</a></p>
+<blockquote>
+<ul>
+<li>共识的稳定性和防攻击性十分关键</li>
+<li>PoW和PoS都是通过经济惩罚来限制恶意参与</li>
+<li>PoW, 工作量证明，Proof of Work, 通过计算来猜测一个数值（nonce），得以解决规定的 hash 问题（来源于 hashcash）。保证在一段时间内，系统中只能出现少数合法提案。同时，这些少量的合法提案会在网络中进行广播，收到的用户进行验证后会基于它认为的最长链上继续难题的计算。因此，系统中可能出现链的分叉（Fork），但最终会有一条链成为最长的链。<ul>
+<li>如果获得符合要求的 nonce，则说明在概率上是付出了对应的算力。</li>
+<li>谁的算力多，谁最先解决问题的概率就越大。</li>
+<li>51%即可 控制网络中链的走向</li>
+<li>参与 PoW 计算比赛的人，将付出不小的经济成本（硬件、电力、维护等）。</li>
+<li>当没有成为首个算出的“幸运儿”时，这些成本都将被<strong>沉没</strong>掉。<br><img src="http://static.zybuluo.com/liuruicai/dm5e7n6umcpiiok5baealik0/image_1bcs005t41t491rgi1gbg1vsu11c89.png" alt="image_1bcs005t41t491rgi1gbg1vsu11c89.png-29.9kB"><br>Pow 保证一致性：认为最长的一条队伍是合法的，并让不合法的分叉队伍重新排队。只要大部分人不傻，就会自觉在最长的队伍上排队。</li>
+</ul>
+</li>
+<li>PoS 权益证明，Proof of Stake，<ul>
+<li>类似现实生活中的股东机制，拥有股份越多的人越容易获取记账权。</li>
+<li>典型的过程是通过保证金（代币、资产、名声等具备价值属性的物品即可）</li>
+<li>PoS 是试图解决在 PoW 中大量资源被浪费的缺点。恶意参与者将存在保证金被罚没的风险，即损失经济利益。</li>
+<li>一般的，对于 PoS 来说，需要掌握超过全网1/3  的资源，才有可能左右最终的结果。这个也很容易理解，三个人投票，前两人分别支持一方，这时候，第三方的投票将决定最终结果。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
 
           
         
@@ -367,6 +1631,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -410,7 +1678,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -418,6 +1686,15 @@
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
           
 
         </nav>

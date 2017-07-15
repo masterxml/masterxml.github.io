@@ -1,0 +1,779 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="AI,Learn," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="第四次工业革命：人工智能（AI）入门 什么是AI 问题：类似医学诊断，预测机器故障时间或衡量某些资产的市值，涉及数千种数据集和大量变量之间的非线性关系 如何：数据优化和特征规范，data optimisation and feature specification 机器学习是AI的一个子集 机器学习算法的界定特征（Defining characteristic)就在于通过经验对预测结果进行改善所能">
+<meta name="keywords" content="AI,Learn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第四次工业革命：人工智能（AI）入门">
+<meta property="og:url" content="http://yoursite.com/2017/03/10/第四次工业革命：人工智能（AI）入门/index.html">
+<meta property="og:site_name" content="又红又专模式">
+<meta property="og:description" content="第四次工业革命：人工智能（AI）入门 什么是AI 问题：类似医学诊断，预测机器故障时间或衡量某些资产的市值，涉及数千种数据集和大量变量之间的非线性关系 如何：数据优化和特征规范，data optimisation and feature specification 机器学习是AI的一个子集 机器学习算法的界定特征（Defining characteristic)就在于通过经验对预测结果进行改善所能">
+<meta property="og:image" content="http://static.zybuluo.com/liuruicai/dzhqog9sdzu93zq7j73qcyub/image_1baqpm3gfk851a1813f815vi1orj9.png">
+<meta property="og:image" content="http://static.zybuluo.com/liuruicai/b2lt2g1e99ba0dtyq3v5r7f2/image_1baqqm3nf1o971gm6mbj5o01ukr13.png">
+<meta property="og:image" content="http://static.zybuluo.com/liuruicai/w7gm1cca3dnw88oict692cga/image_1bbfg2o291tds107u95v9sf8se9.png">
+<meta property="og:image" content="http://static.zybuluo.com/liuruicai/bkmqrdcp7n9p04solye7qpaq/image_1bbfg8nvo192s1v1m15mpr511n5d13.png">
+<meta property="og:image" content="http://static.zybuluo.com/liuruicai/1waus0dc947se00tv37c9j0g/image_1bbfga45dc0n92brf3ks619ee1g.png">
+<meta property="og:image" content="http://static.zybuluo.com/liuruicai/vnl6mwaozewc0ule1h65ye9f/image_1bbfj6cng1jus1fqt1o9444bmta1t.png">
+<meta property="og:updated_time" content="2017-07-15T09:17:43.189Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第四次工业革命：人工智能（AI）入门">
+<meta name="twitter:description" content="第四次工业革命：人工智能（AI）入门 什么是AI 问题：类似医学诊断，预测机器故障时间或衡量某些资产的市值，涉及数千种数据集和大量变量之间的非线性关系 如何：数据优化和特征规范，data optimisation and feature specification 机器学习是AI的一个子集 机器学习算法的界定特征（Defining characteristic)就在于通过经验对预测结果进行改善所能">
+<meta name="twitter:image" content="http://static.zybuluo.com/liuruicai/dzhqog9sdzu93zq7j73qcyub/image_1baqpm3gfk851a1813f815vi1orj9.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/10/第四次工业革命：人工智能（AI）入门/"/>
+
+
+
+
+
+  <title>第四次工业革命：人工智能（AI）入门 | 又红又专模式</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">又红又专模式</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">又红又专模式</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/10/第四次工业革命：人工智能（AI）入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">第四次工业革命：人工智能（AI）入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T08:10:00+08:00">
+                2017-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第四次工业革命：人工智能（AI）入门"><a href="#第四次工业革命：人工智能（AI）入门" class="headerlink" title="第四次工业革命：人工智能（AI）入门"></a><a href="http://www.infoq.com/cn/articles/the-fourth-industrial-revolution-an-introduction-to-ai?utm_source=articles_about_AI&amp;utm_medium=link&amp;utm_campaign=AI" target="_blank" rel="external">第四次工业革命：人工智能（AI）入门</a></h1><blockquote>
+<h2 id="什么是AI"><a href="#什么是AI" class="headerlink" title="什么是AI"></a>什么是AI</h2><ul>
+<li>问题：类似医学诊断，预测机器故障时间或衡量某些资产的市值，涉及数千种数据集和大量变量之间的非线性关系</li>
+<li>如何：数据优化和特征规范，<strong>data optimisation</strong> and <strong>feature specification</strong></li>
+<li>机器学习是AI的一个子集<br><img src="http://static.zybuluo.com/liuruicai/dzhqog9sdzu93zq7j73qcyub/image_1baqpm3gfk851a1813f815vi1orj9.png" alt="image_1baqpm3gfk851a1813f815vi1orj9.png-144.3kB"></li>
+<li>机器学习算法的界定特征（<strong>Defining characteristic</strong>)就在于通过经验对预测结果进行改善所能取得的质量<br>the quality of their predictions imprrove with experience.</li>
+<li>目前机器学习的方法已超过15种<ul>
+<li>深度学习(最后关注）</li>
+<li>random forests，通过创建大量的决策树对预测进行优化</li>
+<li>Bayesian networks，使用基于概率的方法分析变量和变量之间的关系</li>
+<li>support vector machine（支持向量机），可通过多种分类样本并创建模型将新的输入内容分配给某一分类(that are fed categoriesed examples and crate model to assign new inputs to one of the categories)</li>
+</ul>
+</li>
+<li>深度学习是机器 学习的子集<br><img src="http://static.zybuluo.com/liuruicai/b2lt2g1e99ba0dtyq3v5r7f2/image_1baqqm3nf1o971gm6mbj5o01ukr13.png" alt="image_1baqqm3nf1o971gm6mbj5o01ukr13.png-166.2kB"><ul>
+<li>Pros<br>避免了程序员不得不自行处理特征规范<br>神经网络能在几科所有情况下做出正确的判断，实践出（近似的）直知</li>
+<li>Cons<br>很难知道某个神经网络的预测能力是如何发展起来的<br>训练和运行需要投入大量计算处理能力</li>
+</ul>
+</li>
+</ul>
+<h2 id="深度学习如何工作"><a href="#深度学习如何工作" class="headerlink" title="深度学习如何工作"></a>深度学习如何工作</h2><ul>
+<li>使用人造的“神经网络”，这是一种相互连接的“神经元”（基于软件的计算器）的集合</li>
+<li>人造的神经元可接受一种或多种输入，进行数学运算，产生可输入的结果。</li>
+<li>输出结果取决于每类输入的“权重”以及神经元的“输入-输入函数”配置</li>
+<li>神经元可以是：<ul>
+<li>线性单位（Linear unit），输出结果与输入入总权重成比例；</li>
+<li>阈值单位（Threshold unit），输出结果为两个级别中的一种，取决于输入是否高于某个特定值；</li>
+<li>S形单位（Sigmiod unit），输出结果频繁变化，不像输入那样呈线性变化 的态势。<br><img src="http://static.zybuluo.com/liuruicai/w7gm1cca3dnw88oict692cga/image_1bbfg2o291tds107u95v9sf8se9.png" alt="image_1bbfg2o291tds107u95v9sf8se9.png-154.7kB"><br>图5：直接输出的神经元；图6：一个神经元的输出成为另一个神经元的输入<br><img src="http://static.zybuluo.com/liuruicai/bkmqrdcp7n9p04solye7qpaq/image_1bbfg8nvo192s1v1m15mpr511n5d13.png" alt="image_1bbfg8nvo192s1v1m15mpr511n5d13.png-292.3kB"><br>图7：神经网络可通过组织整理呈现为多层次神经元（这也是“深度”这个词的由来）<br><img src="http://static.zybuluo.com/liuruicai/1waus0dc947se00tv37c9j0g/image_1bbfga45dc0n92brf3ks619ee1g.png" alt="image_1bbfga45dc0n92brf3ks619ee1g.png-379.4kB"><br>图8：人脸识别算法，数据装入神经网络后，第一层局部对比模式，例如图版边缘，这是一种底层特征。随着图片在整个网络中流动，逐渐提取出“高层”特征，例如从边缘到鼻子，再从鼻子到面孔。在输出层方面，根据训练效果，神经网络会就图片是每种特定类型的可能性给出概率（人脸：97%；气球：2%；树叶：1%）。</li>
+</ul>
+</li>
+<li><strong>训练过程</strong>：通常来说，神经网络的训练过程需要使用大量已经进行过分类的样本。随后算法会通过检测出的错误和神经元之间的连接权重进行调整，借此改善效果。</li>
+<li>神经网络的设计和完善需要投入<strong>相当多的技能</strong>。例如针对特定应用调整网络结构，提供适宜的训练数据集，根据进展调整网络结构，以及多种方法的混合使用等。<h2 id="为何如此重要：offer-Revolutionayr-rather-than-Evolutionary"><a href="#为何如此重要：offer-Revolutionayr-rather-than-Evolutionary" class="headerlink" title="为何如此重要：offer Revolutionayr, rather than Evolutionary"></a>为何如此重要：offer Revolutionayr, rather than Evolutionary</h2></li>
+<li>五大领域：five filds of enquiry:<ul>
+<li>Resoing</li>
+<li>Knowledge</li>
+<li>Planning</li>
+<li>Communication:自然语言理解</li>
+<li>Perception:<h2 id="为何到今天才开始成熟（1965年就有人提出第一个实际有效的多层神经网络规范："><a href="#为何到今天才开始成熟（1965年就有人提出第一个实际有效的多层神经网络规范：" class="headerlink" title="为何到今天才开始成熟（1965年就有人提出第一个实际有效的多层神经网络规范："></a>为何到今天才开始成熟（1965年就有人提出第一个实际有效的多层神经网络规范：</h2></li>
+</ul>
+<ol>
+<li>算法改进</li>
+</ol>
+<ul>
+<li>卷积神经网络(CNN, Convolutional Neural Networ)，使识别图像中物体的能力实现了比人类更高的准确度（计算机：95.1%；人类：94.9%）；同时递归神经网络(RNN, Recurrent Neural Network)，使语音和手写识别取得悦事进展。<ul>
+<li>RNN可通过反馈连接让数据呈环路流动。</li>
+<li>RNN还出现了一种更强大的新类型：长短期记忆（LSTM，Long Short-Term Memory）模型。在额外的连接和内存“细胞（Cell）”的帮助下，RNN可以“记住”自己在数千步操作之前看到的数据，并使用这些数据对后续需要关注的内容进行解释</li>
+<li>CNN，受到动物视觉脑皮层工作原理启发设计而来，神经网络中的每一层均可充当判断特定模式是否存在所用的筛选器</li>
+<li>卷积神经网络仅“向下馈送”。</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>专用硬件<br>并行架构制造的GPU，可大幅缩短为深度学习训练神经网络所需的时间（Nvidia M40包含3,072个内核）。一颗GPU即可让神经网络的训练时间缩短5倍，比较大规模的问题甚至可实现10倍甚至更高的加速。如下图：<img src="http://static.zybuluo.com/liuruicai/vnl6mwaozewc0ule1h65ye9f/image_1bbfj6cng1jus1fqt1o9444bmta1t.png" alt="image_1bbfj6cng1jus1fqt1o9444bmta1t.png-179.5kB"></li>
+<li>Extensive data(广博的数据)</li>
+</ol>
+<ul>
+<li>深度学习所用的神经网络通常需要用大量数据集进行训练，样本数量从数千起步，甚至可高达数百万。</li>
+<li><strong>人类平均每天会生成2.2EB（23亿GB）数据</strong>，全球数据总量中有90%是过去24个月内创建的</li>
+<li>三波数据时代：<br>第一波”的数据创建时代始于二十世纪八十年代，当时创建的主要是文档和事务数据<ul>
+<li>“第二波”数据时代，在可联网智能手机的推动下，诞生了大量非结构化媒体数据（邮件、照片、音乐、视频）、Web数据，以及各种元数据。</li>
+<li>“第二波”数据时代，在可联网智能手机的推动下，诞生了大量非结构化媒体数据（邮件、照片、音乐、视频）、Web数据，以及各种元数据。</li>
+</ul>
+</li>
+<li>1992年，全人类每天平均传输100GB数据，但到2020年，我们将每秒传输61,000GB数据</li>
+<li>ImageNet是一个免费提供的数据库，其中已经包含超过1千万张手工分类的图片。</li>
+</ul>
+<ol>
+<li>云服务</li>
+</ol>
+<ul>
+<li>使得机器学习能力的开发成本和难度大幅降低。</li>
+<li>还提供了可直接用于自己应用程序内的一系列云端机器学习服务</li>
+</ul>
+<ol>
+<li>兴趣和创业者: 公众对AI的兴趣在过去五年里增加了六倍<h2 id="接下来会怎样？"><a href="#接下来会怎样？" class="headerlink" title="接下来会怎样？"></a>接下来会怎样？</h2></li>
+</ol>
+</li>
+<li>与任何范式转变过程一样，有时过高的期望可能会超出短期内所能实现的潜力。As with any paradigm shift, at times inflated expectations will exceed short-term portential.</li>
+<li>我们期待着未来某一时刻，人们对AI的幻想能够彻底幻灭，随之而来的将会是长期、持续的价值认可，因为机器学习已经被用于改善并革新现有的系统。</li>
+<li>第一次工业革命在十八世纪八十年代使用蒸汽机驱动了机械化的生产过程；</li>
+<li>第二次工业革命在十九世纪七十年代使用电力推动了商品的大规模量产；</li>
+<li>第三次工业革命在二十世纪七十年代使用电子和软件技术实现了生产和交流的自动化。</li>
+<li>今天，随着软件逐渐“蚕食”整个世界，<strong>我们创造价值的主要来源已成为信息本身的处理</strong>。通过用更智能的方式完成这样的工作，机器学习将低调地为我们带来效益和历史意义。</li>
+</ul>
+</blockquote>
+<h1 id="如何跨越人工智能技术与产品的鸿沟？"><a href="#如何跨越人工智能技术与产品的鸿沟？" class="headerlink" title="如何跨越人工智能技术与产品的鸿沟？"></a><a href="http://m.eeworld.com.cn/ic_article/285/33363.html" target="_blank" rel="external">如何跨越人工智能技术与产品的鸿沟？</a></h1><blockquote>
+<ul>
+<li>训练，向算法模型提供客户请求和相应的正确啥反应的样本数据。样本通常是静态化，结构化的数据，如csv数据格式</li>
+<li>还需要新的数据 进行增量式的训练，<strong>公司应该及早投资机器学习架构，不断收集数据</strong>，并使用穿丝袜定期更新人工智能模型。</li>
+<li>实时数据的使用面临着许多工程性挑战，包括调度，不停机模型迭代，稳定性和性能监控。</li>
+<li>GIGO（garbage in， garbage out）是机器学习的基本规则，所以一个良好的人工智能系统能够检测出潜在的问题，并在需要人工干预的时候向管理员发出警报。<ul>
+<li>克服构建信任的困难:如果客户不信任人工智能，就不会使用它驱动的产品</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="决策树算法：随机森林"><a href="#决策树算法：随机森林" class="headerlink" title="决策树算法：随机森林"></a>决策树算法：随机森林</h1>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AI/" rel="tag"># AI</a>
+          
+            <a href="/tags/Learn/" rel="tag"># Learn</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/21/TensorFlow/" rel="next" title="TensorFlow">
+                <i class="fa fa-chevron-left"></i> TensorFlow
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/11/区块链 block chain/" rel="prev" title="区块链 block chain">
+                区块链 block chain <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div id="sidebar-dimmer"></div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="又红又专模式" />
+          <p class="site-author-name" itemprop="name">又红又专模式</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第四次工业革命：人工智能（AI）入门"><span class="nav-number">1.</span> <span class="nav-text">第四次工业革命：人工智能（AI）入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是AI"><span class="nav-number">1.1.</span> <span class="nav-text">什么是AI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习如何工作"><span class="nav-number">1.2.</span> <span class="nav-text">深度学习如何工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为何如此重要：offer-Revolutionayr-rather-than-Evolutionary"><span class="nav-number">1.3.</span> <span class="nav-text">为何如此重要：offer Revolutionayr, rather than Evolutionary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为何到今天才开始成熟（1965年就有人提出第一个实际有效的多层神经网络规范："><span class="nav-number">1.4.</span> <span class="nav-text">为何到今天才开始成熟（1965年就有人提出第一个实际有效的多层神经网络规范：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来会怎样？"><span class="nav-number">1.5.</span> <span class="nav-text">接下来会怎样？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何跨越人工智能技术与产品的鸿沟？"><span class="nav-number">2.</span> <span class="nav-text">如何跨越人工智能技术与产品的鸿沟？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#决策树算法：随机森林"><span class="nav-number">3.</span> <span class="nav-text">决策树算法：随机森林</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">又红又专模式</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

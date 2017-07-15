@@ -1,0 +1,788 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Learn," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="以下参考：InfoQ:跨平台移动应用开发的优势与不足 两种类型的跨平台应用： 原生跨平台应用 混合（hybrid）HTML 5跨平台应用移动端的主要任务  如今，创建跨平台的原生应用尽管是可行的，但是当前的实现状况离完成还差的很远。大多数移动应用的重心都是GUI（图形化用户界面）的实现。几乎所有的关键业务应用逻辑都位于服务端，移动端会通过Web服务访问服务端的业务逻辑。      大致来讲，在移动">
+<meta name="keywords" content="Learn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨平台移动开发">
+<meta property="og:url" content="http://yoursite.com/2017/06/28/跨平台移动开发/index.html">
+<meta property="og:site_name" content="又红又专模式">
+<meta property="og:description" content="以下参考：InfoQ:跨平台移动应用开发的优势与不足 两种类型的跨平台应用： 原生跨平台应用 混合（hybrid）HTML 5跨平台应用移动端的主要任务  如今，创建跨平台的原生应用尽管是可行的，但是当前的实现状况离完成还差的很远。大多数移动应用的重心都是GUI（图形化用户界面）的实现。几乎所有的关键业务应用逻辑都位于服务端，移动端会通过Web服务访问服务端的业务逻辑。      大致来讲，在移动">
+<meta property="og:image" content="http://cdn2.infoqstatic.com/statics_s1_20170620-0701/resource/articles/mobile-cross-platform-app-development/zh/resources/10.jpg">
+<meta property="og:image" content="http://cdn2.infoqstatic.com/statics_s1_20170620-0701/resource/articles/mobile-cross-platform-app-development/zh/resources/11.jpg">
+<meta property="og:updated_time" content="2017-07-15T09:36:43.643Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="跨平台移动开发">
+<meta name="twitter:description" content="以下参考：InfoQ:跨平台移动应用开发的优势与不足 两种类型的跨平台应用： 原生跨平台应用 混合（hybrid）HTML 5跨平台应用移动端的主要任务  如今，创建跨平台的原生应用尽管是可行的，但是当前的实现状况离完成还差的很远。大多数移动应用的重心都是GUI（图形化用户界面）的实现。几乎所有的关键业务应用逻辑都位于服务端，移动端会通过Web服务访问服务端的业务逻辑。      大致来讲，在移动">
+<meta name="twitter:image" content="http://cdn2.infoqstatic.com/statics_s1_20170620-0701/resource/articles/mobile-cross-platform-app-development/zh/resources/10.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/28/跨平台移动开发/"/>
+
+
+
+
+
+  <title>跨平台移动开发 | 又红又专模式</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">又红又专模式</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">又红又专模式</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/28/跨平台移动开发/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">跨平台移动开发</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-28T07:40:00+08:00">
+                2017-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>以下参考：<a href="http://www.infoq.com/cn/articles/mobile-cross-platform-app-development" target="_blank" rel="external">InfoQ:跨平台移动应用开发的优势与不足</a></p>
+<h2 id="两种类型的跨平台应用："><a href="#两种类型的跨平台应用：" class="headerlink" title="两种类型的跨平台应用："></a>两种类型的跨平台应用：</h2><ol>
+<li>原生跨平台应用</li>
+<li>混合（hybrid）HTML 5跨平台应用<h2 id="移动端的主要任务"><a href="#移动端的主要任务" class="headerlink" title="移动端的主要任务"></a>移动端的主要任务</h2><blockquote>
+<ul>
+<li>如今，创建跨平台的原生应用尽管是可行的，但是当前的实现状况离完成还差的很远。大多数移动应用的重心都是<strong>GUI</strong>（图形化用户界面）的实现。几乎所有的<strong>关键业务应用逻辑</strong>都位于服务端，移动端会通过Web服务访问服务端的业务逻辑。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>大致来讲，在移动应用中，尤其是在业务流程自动化领域，<strong>大约60%</strong>的代码都是在处理<strong>GUI的创建和管理</strong>。<h2 id="原生跨平台"><a href="#原生跨平台" class="headerlink" title="原生跨平台"></a>原生跨平台</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
+<p>因为iOS和Android在用户界面（User Interface，UI）和用户体验设计（User Experience Design，UXD）上有着很大的差异，所以为其创建一个统一的GUI包装器并不是一项简单的任务。尽管Xamarin和其他的厂商在这方面已经做了很多超前的工作，但是<strong>离完美还差得很远</strong>。如果你能够在框架的限制下设计应用的话，那么它能运行良好，如果你所需要的内容不匹配框架的愿景的话，那么就需要很多额外的工作，并且要编写平台相关的代码。</p>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p>在原生跨平台开发中，一种很流行的方式就是使用跨平台库来编写业务<strong>逻辑和Web服务</strong>，而<strong>GUI相关的代码</strong>使用平台特定的库来编写。根据应用的不同，这样能够实现<strong>30%到60%的代码重用</strong>。</p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>|名称|发布时间|主要语言|特点|<br>|—|—|—|—|<br>|Xamarin|2011|c#|M$的支持，使用现有C#开发人员|<br>|Appcelerator Titanium|2012|javascript|Web开发范式, 收费的MBaaS（移动后端即服务），很多问题|<br>|NativeScript|2014|Javascript|很新，但是很有潜力|<br>|QT|1995, 2013iOS和Android|C++与QML|历史最悠久, C++难掌握|<br>|RubyMotion|2012,2014iOS和Android|Ruby|需要为iOS和Android编写独立的GUI代码，但是业务逻辑可以跨平台重用|</p>
+<h2 id="混合HTML5跨平台"><a href="#混合HTML5跨平台" class="headerlink" title="混合HTML5跨平台"></a>混合HTML5跨平台</h2><h3 id="方式和特点"><a href="#方式和特点" class="headerlink" title="方式和特点"></a>方式和特点</h3><ul>
+<li>不管iOS、Android，还是Windows Phone，在它们的SDK中都包含了一个非常高级的浏览器组件。借助这个<strong>WebView组件</strong>，程序员能够使用标准的HTML5 Web技术实现对应用的设计和编码。最终，在应用的组成中，至少会有一个<strong>原生frame</strong>还会有在WebView中执行的HTML/JavaScript——这也是为什么它们被称为“混合”应用。</li>
+</ul>
+</blockquote>
+</li>
+<li>在需要传感器输入的特性中，比如地理位置、摄像头，以及像访问文件系统这样的底层的功能，通常会使用混合应用框架所提供的<strong>JavaScript-to-native桥</strong>。</li>
+</ul>
+<h3 id="混合应用的架构-Cordova-PhoneGap"><a href="#混合应用的架构-Cordova-PhoneGap" class="headerlink" title="混合应用的架构/Cordova/PhoneGap"></a>混合应用的架构/Cordova/PhoneGap</h3><p><img src="http://cdn2.infoqstatic.com/statics_s1_20170620-0701/resource/articles/mobile-cross-platform-app-development/zh/resources/10.jpg" alt="image_1bjm1jsp216j8kh3jfj1o31qlr9.png-157.4kB"></p>
+<ol>
+<li>借助像framework7（<a href="http://framework7.io/）这样的库，我们甚至有可能使用基于CSS的主题来**支持底层操作系统的默认外观**。" target="_blank" rel="external">http://framework7.io/）这样的库，我们甚至有可能使用基于CSS的主题来**支持底层操作系统的默认外观**。</a></li>
+<li><strong>打包到应用内</strong>（在混合应用中，HTML、CSS和JavaScript代码是随着应用一起发布的。因此，加载UI相关的代码并没有延迟，这与通过网络加载Web站点是不同的。）</li>
+<li>在现代功能强大的手机上，我们可以使用HTML 5技术创建出很<strong>炫酷的UI</strong>。</li>
+<li>尤其是对于B2B应用，通过使用Cordova，有可能实现<strong>85-90%的跨平台代码重用</strong>。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>应用开发的所有可选方案<br><img src="http://cdn2.infoqstatic.com/statics_s1_20170620-0701/resource/articles/mobile-cross-platform-app-development/zh/resources/11.jpg" alt="应用开发的所有可选方案"></p>
+<h3 id="跨平台移动应用优势与不足"><a href="#跨平台移动应用优势与不足" class="headerlink" title="跨平台移动应用优势与不足"></a>跨平台移动应用优势与不足</h3><table>
+<thead>
+<tr>
+<th>—</th>
+<th>不足</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>H5混合在中低手机反应迟钝</td>
+<td>硬件能力来执行流畅的HTML5动画</td>
+</tr>
+<tr>
+<td>2</td>
+<td>H5混合更耗电</td>
+<td>渲染现代的HTML和CSS会用到像渐变这样的高级特性，它会使用大量的CPU和GPU资源</td>
+</tr>
+<tr>
+<td>3</td>
+<td>代码更复杂</td>
+<td>HTML5混合应用依赖于回调风格的编程</td>
+</tr>
+<tr>
+<td>4</td>
+<td>难于实现特定平台的外观和体验</td>
+<td>原生跨平台应用的SDK还不成熟</td>
+</tr>
+<tr>
+<td>5</td>
+<td>很多成功的应用都是原生应用</td>
+<td>设计和构建一款针对多种平台的应用实在是很困难，这些平台都有特定的用户体验方式。所有的平台都定义了自己的人机界面指南</td>
+</tr>
+<tr>
+<td>6</td>
+<td>跟不上移动操作系统的升级</td>
+<td>移动操作系统正在以很快的速度演进。每年会有越来越多的特性添加进来，这为跨平台SDK厂商带来了很多的工作，因为他们需要在操作系统新版本发布之后的很短的时间内，就拿出SDK的新版本。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>—</th>
+<th>优势</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>更快和降低成本</td>
+<td>50%-80%的代码重用</td>
+</tr>
+<tr>
+<td>2</td>
+<td>好维护</td>
+<td>如果在通用代码库中发现了bug，我们只需修正一次即可。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>易于单元测试</td>
+<td>通用的代码，只需编写一次单元测试</td>
+</tr>
+<tr>
+<td>4</td>
+<td>学习成本低</td>
+<td>我们可以使用已有的编程技能</td>
+</tr>
+<tr>
+<td>5</td>
+<td>更好的上线时间和资源利用率</td>
+<td>B2B应用和业务流程自动化应用来说，它比外观和体验更为重要</td>
+</tr>
+</tbody>
+</table>
+<h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><ul>
+<li>We used Xamarin forms and shared 95% code cross platforms. [Ritesh Patil]</li>
+<li>Xamarin is good, How much code reuse is possible, depends on the UI desiong and the type of the app you are developing. [Ritesh Patil]</li>
+<li>Xamarin are more than “backed by Microsoft”, they have been acquired and are full owned by Microsoft</li>
+<li>H5的跨平台方案，基本认为是失败的</li>
+</ul>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Learn/" rel="tag"># Learn</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/15/概念笔记二/" rel="next" title="概念笔记二">
+                <i class="fa fa-chevron-left"></i> 概念笔记二
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div id="sidebar-dimmer"></div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="又红又专模式" />
+          <p class="site-author-name" itemprop="name">又红又专模式</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种类型的跨平台应用："><span class="nav-number">1.</span> <span class="nav-text">两种类型的跨平台应用：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端的主要任务"><span class="nav-number">2.</span> <span class="nav-text">移动端的主要任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原生跨平台"><span class="nav-number">3.</span> <span class="nav-text">原生跨平台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">3.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实践"><span class="nav-number">3.2.</span> <span class="nav-text">实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">3.3.</span> <span class="nav-text">列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合HTML5跨平台"><span class="nav-number">4.</span> <span class="nav-text">混合HTML5跨平台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方式和特点"><span class="nav-number">4.1.</span> <span class="nav-text">方式和特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合应用的架构-Cordova-PhoneGap"><span class="nav-number">4.2.</span> <span class="nav-text">混合应用的架构/Cordova/PhoneGap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跨平台移动应用优势与不足"><span class="nav-number">5.1.</span> <span class="nav-text">跨平台移动应用优势与不足</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论"><span class="nav-number">6.</span> <span class="nav-text">评论</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">又红又专模式</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

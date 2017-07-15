@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Learn," />
 
 
 
@@ -93,16 +93,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="发件人策略框架（英语：Sender Policy Framework；简称SPF；RFC4408）是一个电子邮件验证系统，目的是解决电子邮件伪造。SPF允许管理员设定一个DNS TXT记录或SPF记录设定发送邮件服务器的IP范围。  SPF 是为了防范垃圾邮件而提出来的一种 DNS 记录类型, 用于登记某个域名拥有的外发邮件的所有 IP 地址MX 是邮件交换记录, 它指向一个邮件服务器, 用于电">
+<meta name="keywords" content="Learn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/07/12/hello-world/index.html">
+<meta property="og:title" content="SMTP 触发邮件发送">
+<meta property="og:url" content="http://yoursite.com/2017/06/12/SMTP 触发邮件发送/index.html">
 <meta property="og:site_name" content="又红又专模式">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-07-11T23:49:50.511Z">
+<meta property="og:description" content="发件人策略框架（英语：Sender Policy Framework；简称SPF；RFC4408）是一个电子邮件验证系统，目的是解决电子邮件伪造。SPF允许管理员设定一个DNS TXT记录或SPF记录设定发送邮件服务器的IP范围。  SPF 是为了防范垃圾邮件而提出来的一种 DNS 记录类型, 用于登记某个域名拥有的外发邮件的所有 IP 地址MX 是邮件交换记录, 它指向一个邮件服务器, 用于电">
+<meta property="og:updated_time" content="2017-07-15T09:42:05.956Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="SMTP 触发邮件发送">
+<meta name="twitter:description" content="发件人策略框架（英语：Sender Policy Framework；简称SPF；RFC4408）是一个电子邮件验证系统，目的是解决电子邮件伪造。SPF允许管理员设定一个DNS TXT记录或SPF记录设定发送邮件服务器的IP范围。  SPF 是为了防范垃圾邮件而提出来的一种 DNS 记录类型, 用于登记某个域名拥有的外发邮件的所有 IP 地址MX 是邮件交换记录, 它指向一个邮件服务器, 用于电">
 
 
 
@@ -130,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/12/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/12/SMTP 触发邮件发送/"/>
 
 
 
 
 
-  <title>Hello World | 又红又专模式</title>
+  <title>SMTP 触发邮件发送 | 又红又专模式</title>
   
 
 
@@ -255,7 +256,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/12/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/SMTP 触发邮件发送/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="又红又专模式">
@@ -272,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">SMTP 触发邮件发送</h1>
         
 
         <div class="post-meta">
@@ -284,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T07:49:50+08:00">
-                2017-07-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T10:38:00+08:00">
+                2017-06-12
               </time>
             
 
@@ -319,15 +320,16 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <ul>
+<li><p>发件人策略框架（英语：Sender Policy Framework；简称SPF；RFC4408）是一个电子邮件验证系统，目的是解决电子邮件伪造。SPF允许管理员设定一个DNS TXT记录或SPF记录设定发送邮件服务器的IP范围。</p>
+</li>
+<li><p>SPF 是为了防范垃圾邮件而提出来的一种 DNS 记录类型, 用于登记某个域名拥有的外发邮件的所有 IP 地址<br>MX 是邮件交换记录, 它指向一个邮件服务器, 用于电子邮件系统发邮件时根据收信人的地址后缀来定位邮件服务器</p>
+</li>
+<li><p>CNAME 是链接跳转记录. SendCloud 需要此配置项来收集点击数据.</p>
+</li>
+<li><p>DKIM 是防止欺诈邮件的一个重要技术手段, 通常发送方会在电子邮件的标头插入 DKIM-Signature 及电子签名资讯, 而接收方则透过 DNS 查询得到公钥后进行验证. 建议配置, 特别是国外域比较多的用户.</p>
+</li>
+</ul>
 
       
     </div>
@@ -355,11 +357,37 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Learn/" rel="tag"># Learn</a>
+          
+        </div>
+      
 
       
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/03/Docker/" rel="next" title="Docker">
+                <i class="fa fa-chevron-left"></i> Docker
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/15/概念笔记二/" rel="prev" title="概念笔记二">
+                概念笔记二 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -404,17 +432,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -429,7 +448,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -437,6 +456,15 @@
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
           
 
         </nav>
@@ -458,22 +486,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
