@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="镜像Image 不包含任何动态数据，其内容在构建之后也不会被改变 是一个特殊的文件系统 它包含操作系统完整的root文件系统 它不是一个具体的像ISO那样的打包文件，而是一个虚拟的概念，不是一个文件，而是由一组文件系统组成。 镜像一层一层构建。后一层上的任何改变只发生在自己这一层， 删除前一层文件的操作公是在妆前层票房为该文件已删除。容器Container Container是Image运行时的实">
+<meta name="description" content="镜像Image 不包含任何动态数据，其内容在构建之后也不会被改变 是一个特殊的文件系统 它包含操作系统完整的root文件系统">
 <meta name="keywords" content="Learn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
 <meta property="og:url" content="http://yoursite.com/2017/06/03/Docker/index.html">
 <meta property="og:site_name" content="又红又专模式">
-<meta property="og:description" content="镜像Image 不包含任何动态数据，其内容在构建之后也不会被改变 是一个特殊的文件系统 它包含操作系统完整的root文件系统 它不是一个具体的像ISO那样的打包文件，而是一个虚拟的概念，不是一个文件，而是由一组文件系统组成。 镜像一层一层构建。后一层上的任何改变只发生在自己这一层， 删除前一层文件的操作公是在妆前层票房为该文件已删除。容器Container Container是Image运行时的实">
-<meta property="og:updated_time" content="2017-07-15T09:40:50.142Z">
+<meta property="og:description" content="镜像Image 不包含任何动态数据，其内容在构建之后也不会被改变 是一个特殊的文件系统 它包含操作系统完整的root文件系统">
+<meta property="og:updated_time" content="2017-07-16T01:15:15.778Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker">
-<meta name="twitter:description" content="镜像Image 不包含任何动态数据，其内容在构建之后也不会被改变 是一个特殊的文件系统 它包含操作系统完整的root文件系统 它不是一个具体的像ISO那样的打包文件，而是一个虚拟的概念，不是一个文件，而是由一组文件系统组成。 镜像一层一层构建。后一层上的任何改变只发生在自己这一层， 删除前一层文件的操作公是在妆前层票房为该文件已删除。容器Container Container是Image运行时的实">
+<meta name="twitter:description" content="镜像Image 不包含任何动态数据，其内容在构建之后也不会被改变 是一个特殊的文件系统 它包含操作系统完整的root文件系统">
 
 
 
@@ -323,16 +323,21 @@
         <h1 id="镜像Image"><a href="#镜像Image" class="headerlink" title="镜像Image"></a>镜像Image</h1><ul>
 <li>不包含任何动态数据，其内容在构建之后也不会被改变</li>
 <li>是一个特殊的文件系统</li>
-<li>它包含操作系统完整的root文件系统</li>
+<li>它包含操作系统完整的root文件系统<a id="more"></a></li>
 <li>它不是一个具体的像ISO那样的打包文件，而是一个虚拟的概念，不是一个文件，而是由一组文件系统组成。</li>
 <li>镜像一层一层构建。后一层上的任何改变只发生在自己这一层，</li>
-<li>删除前一层文件的操作公是在妆前层票房为该文件已删除。<h1 id="容器Container"><a href="#容器Container" class="headerlink" title="容器Container"></a>容器Container</h1></li>
+<li>删除前一层文件的操作公是在妆前层票房为该文件已删除。</li>
+</ul>
+<h1 id="容器Container"><a href="#容器Container" class="headerlink" title="容器Container"></a>容器Container</h1><ul>
 <li>Container是Image运行时的实体，Image是静态的定义。像是面向对象中类和实例的关系</li>
 <li>容器的实质是进程，但容器的进程运行于属于自己的独立的命名空间</li>
 <li>容器运行时，是以镜像为基础层，在其上创建一个当前容器的存储层。</li>
 <li>容器存储都将随窗口消亡时消失。</li>
 <li>容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。</li>
-<li>文件的写入操作，都应该使用数据卷、或绑定宿主目录<h1 id="Linux-Namespace"><a href="#Linux-Namespace" class="headerlink" title="Linux Namespace"></a>Linux Namespace</h1>Linux内核中提供了这六种namespace隔离的系统调用。</li>
+<li>文件的写入操作，都应该使用数据卷、或绑定宿主目录</li>
+</ul>
+<h1 id="Linux-Namespace"><a href="#Linux-Namespace" class="headerlink" title="Linux Namespace"></a>Linux Namespace</h1><p>Linux内核中提供了这六种namespace隔离的系统调用。</p>
+<ul>
 <li>UTS:隔离主机名与域名</li>
 <li>IPC:信号量、消息队列和共享内存</li>
 <li>PID:进程编号</li>
@@ -467,7 +472,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

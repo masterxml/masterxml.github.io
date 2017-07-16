@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="AI,Learn," />
+  <meta name="keywords" content="Learn,AI," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="谢澎涛： 概述 概率图模型大致可以分为两种，directed graphical model(又称贝叶斯网络）和undirected graphical model（又称马尔可夫随机场） PGM（同支持向量机、决策树、bosting一起）是将人工智能的研究热点从传统AI（逻辑，推理，知识表示）转向机器学习的重要工作  应用：隐马尔可夫模型（HMM）是语音识别的支柱模型高斯混合模型（GMM）及其变种">
-<meta name="keywords" content="AI,Learn">
+<meta name="description" content="谢澎涛： 概述 概率图模型大致可以分为两种，directed graphical model(又称贝叶斯网络）和undirected graphical model（又称马尔可夫随机场） PGM（同支持向量机、决策树、bosting一起）是将人工智能的研究热点从传统AI（逻辑，推理，知识表示）转向机器学习的重要工作">
+<meta name="keywords" content="Learn,AI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率图模型(PGM)">
 <meta property="og:url" content="http://yoursite.com/2017/05/12/概率图模型(PGM)/index.html">
 <meta property="og:site_name" content="又红又专模式">
-<meta property="og:description" content="谢澎涛： 概述 概率图模型大致可以分为两种，directed graphical model(又称贝叶斯网络）和undirected graphical model（又称马尔可夫随机场） PGM（同支持向量机、决策树、bosting一起）是将人工智能的研究热点从传统AI（逻辑，推理，知识表示）转向机器学习的重要工作  应用：隐马尔可夫模型（HMM）是语音识别的支柱模型高斯混合模型（GMM）及其变种">
-<meta property="og:updated_time" content="2017-07-15T09:19:33.845Z">
+<meta property="og:description" content="谢澎涛： 概述 概率图模型大致可以分为两种，directed graphical model(又称贝叶斯网络）和undirected graphical model（又称马尔可夫随机场） PGM（同支持向量机、决策树、bosting一起）是将人工智能的研究热点从传统AI（逻辑，推理，知识表示）转向机器学习的重要工作">
+<meta property="og:updated_time" content="2017-07-16T01:18:17.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="概率图模型(PGM)">
-<meta name="twitter:description" content="谢澎涛： 概述 概率图模型大致可以分为两种，directed graphical model(又称贝叶斯网络）和undirected graphical model（又称马尔可夫随机场） PGM（同支持向量机、决策树、bosting一起）是将人工智能的研究热点从传统AI（逻辑，推理，知识表示）转向机器学习的重要工作  应用：隐马尔可夫模型（HMM）是语音识别的支柱模型高斯混合模型（GMM）及其变种">
+<meta name="twitter:description" content="谢澎涛： 概述 概率图模型大致可以分为两种，directed graphical model(又称贝叶斯网络）和undirected graphical model（又称马尔可夫随机场） PGM（同支持向量机、决策树、bosting一起）是将人工智能的研究热点从传统AI（逻辑，推理，知识表示）转向机器学习的重要工作">
 
 
 
@@ -323,9 +323,9 @@
         <p>谢澎涛：</p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
 <li>概率图模型大致可以分为两种，directed graphical model(又称贝叶斯网络）和undirected graphical model（又称马尔可夫随机场）</li>
-<li>PGM（同支持向量机、决策树、bosting一起）是将人工智能的研究热点从传统AI（逻辑，推理，知识表示）转向机器学习的重要工作</li>
+<li>PGM（同支持向量机、决策树、bosting一起）是将人工智能的研究热点从传统AI（逻辑，推理，知识表示）转向机器学习的重要工作<a id="more"></a>
+<h1 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h1>隐马尔可夫模型（HMM）是语音识别的支柱模型<br>高斯混合模型（GMM）及其变种K-means是数据聚类的最基本模型<br>条件随机场（CRF）广泛应用于自然语言处理（如词性标注，命名实体识别）<br>Ising模型获得过诺贝尔奖<br>话题模型在工业界大量使用(如腾讯的推荐系统）</li>
 </ul>
-<h1 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h1><p>隐马尔可夫模型（HMM）是语音识别的支柱模型<br>高斯混合模型（GMM）及其变种K-means是数据聚类的最基本模型<br>条件随机场（CRF）广泛应用于自然语言处理（如词性标注，命名实体识别）<br>Ising模型获得过诺贝尔奖<br>话题模型在工业界大量使用(如腾讯的推荐系统）</p>
 <h1 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h1><p>PGM是一个概率分布，<br>图中的结点对应于随机变量，<br>边对应于随机变量的dependency或者correlation关系</p>
 <h1 id="使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识"><a href="#使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识" class="headerlink" title="使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识"></a>使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识</h1><p>构建一个图<br>用观测点表示观测到的数据，<br>用隐含结点表示潜在的知识，<br>用边来描述知识与数据的相互关系，<br>最后获得一个概率分布。<br>给定概率分布之后，通过进行两个任务来获取知识：</p>
 <ol>
@@ -333,7 +333,7 @@
 <li>learning(学习这个概率分布的参数)</li>
 </ol>
 <h1 id="强大之处在于："><a href="#强大之处在于：" class="headerlink" title="强大之处在于："></a>强大之处在于：</h1><p>不管数据和知识多复杂，我们的处理手段是一样的：<br>建一个图，定义一个概率分布，进行inference和learning</p>
-<p>#系统学习：<br>推荐CMU Eric Xing教授每年开的10708 PGM课程 <a href="http://www.cs.cmu.edu/~epxing/Class/10708-14/lecture.html" target="_blank" rel="external">10708 Probabilistic Graphical Models</a>。 既包含了PGM最基本、最核心的内容，也讲述了很多advanced topic。而且有视频。</p>
+<h1 id="系统学习："><a href="#系统学习：" class="headerlink" title="系统学习："></a>系统学习：</h1><p>推荐CMU Eric Xing教授每年开的10708 PGM课程 <a href="http://www.cs.cmu.edu/~epxing/Class/10708-14/lecture.html" target="_blank" rel="external">10708 Probabilistic Graphical Models</a>。 既包含了PGM最基本、最核心的内容，也讲述了很多advanced topic。而且有视频。</p>
 
       
     </div>
@@ -363,9 +363,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/AI/" rel="tag"># AI</a>
-          
             <a href="/tags/Learn/" rel="tag"># Learn</a>
+          
+            <a href="/tags/AI/" rel="tag"># AI</a>
           
         </div>
       
@@ -463,7 +463,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -511,7 +511,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用："><span class="nav-number">2.</span> <span class="nav-text">应用：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释"><span class="nav-number">3.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识"><span class="nav-number">4.</span> <span class="nav-text">使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#强大之处在于："><span class="nav-number">5.</span> <span class="nav-text">强大之处在于：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用："><span class="nav-number">2.</span> <span class="nav-text">应用：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解释"><span class="nav-number">3.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识"><span class="nav-number">4.</span> <span class="nav-text">使用：给定一个实际问题，我们通常会观测到一引起数据，并且希望能够挖掘出隐含在数据中的知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#强大之处在于："><span class="nav-number">5.</span> <span class="nav-text">强大之处在于：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统学习："><span class="nav-number">6.</span> <span class="nav-text">系统学习：</span></a></li></ol></div>
             
 
           </div>

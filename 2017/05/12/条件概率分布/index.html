@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="AI,Learn," />
+  <meta name="keywords" content="Learn,AI," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="起源条件随机场-&amp;gt;马尔可夫随机场贝叶斯网络每一条边是一个条件概率分布，P(X|Y)，条件是父节点、结果是子节点。他有一个问题，就是当我知道A、B、C三个变量之间有相关关系，但是不知道具体是谁依赖谁，或者我不想先假设谁依赖谁，这个时候贝叶斯就画不出来图了。因为贝叶斯网络是通过变量之间的条件分布来建模整个网络的，相关关系是通过依赖关系（条件分布）来表达的。 概念条件概率分布（Conditiona">
-<meta name="keywords" content="AI,Learn">
+<meta name="description" content="起源条件随机场-&amp;gt;马尔可夫随机场贝叶斯网络每一条边是一个条件概率分布，P(X|Y)，条件是父节点、结果是子节点。他有一个问题，就是当我知道A、B、C三个变量之间有相关关系，但是不知道具体是谁依赖谁，或者我不想先假设谁依赖谁，这个时候贝叶斯就画不出来图了。因为贝叶斯网络是通过变量之间的条件分布来建模整个网络的，相关关系是通过依赖关系（条件分布）来表达的。 概念">
+<meta name="keywords" content="Learn,AI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="条件概率分布">
 <meta property="og:url" content="http://yoursite.com/2017/05/12/条件概率分布/index.html">
 <meta property="og:site_name" content="又红又专模式">
-<meta property="og:description" content="起源条件随机场-&amp;gt;马尔可夫随机场贝叶斯网络每一条边是一个条件概率分布，P(X|Y)，条件是父节点、结果是子节点。他有一个问题，就是当我知道A、B、C三个变量之间有相关关系，但是不知道具体是谁依赖谁，或者我不想先假设谁依赖谁，这个时候贝叶斯就画不出来图了。因为贝叶斯网络是通过变量之间的条件分布来建模整个网络的，相关关系是通过依赖关系（条件分布）来表达的。 概念条件概率分布（Conditiona">
-<meta property="og:updated_time" content="2017-07-15T09:05:12.659Z">
+<meta property="og:description" content="起源条件随机场-&amp;gt;马尔可夫随机场贝叶斯网络每一条边是一个条件概率分布，P(X|Y)，条件是父节点、结果是子节点。他有一个问题，就是当我知道A、B、C三个变量之间有相关关系，但是不知道具体是谁依赖谁，或者我不想先假设谁依赖谁，这个时候贝叶斯就画不出来图了。因为贝叶斯网络是通过变量之间的条件分布来建模整个网络的，相关关系是通过依赖关系（条件分布）来表达的。 概念">
+<meta property="og:updated_time" content="2017-07-16T01:16:29.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="条件概率分布">
-<meta name="twitter:description" content="起源条件随机场-&amp;gt;马尔可夫随机场贝叶斯网络每一条边是一个条件概率分布，P(X|Y)，条件是父节点、结果是子节点。他有一个问题，就是当我知道A、B、C三个变量之间有相关关系，但是不知道具体是谁依赖谁，或者我不想先假设谁依赖谁，这个时候贝叶斯就画不出来图了。因为贝叶斯网络是通过变量之间的条件分布来建模整个网络的，相关关系是通过依赖关系（条件分布）来表达的。 概念条件概率分布（Conditiona">
+<meta name="twitter:description" content="起源条件随机场-&amp;gt;马尔可夫随机场贝叶斯网络每一条边是一个条件概率分布，P(X|Y)，条件是父节点、结果是子节点。他有一个问题，就是当我知道A、B、C三个变量之间有相关关系，但是不知道具体是谁依赖谁，或者我不想先假设谁依赖谁，这个时候贝叶斯就画不出来图了。因为贝叶斯网络是通过变量之间的条件分布来建模整个网络的，相关关系是通过依赖关系（条件分布）来表达的。 概念">
 
 
 
@@ -321,7 +321,8 @@
 
       
         <h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p><a href="https://www.zhihu.com/question/35866596/answer/74187736" target="_blank" rel="external">条件随机场-&gt;马尔可夫随机场</a><br>贝叶斯网络每一条边是一个条件概率分布，P(X|Y)，条件是父节点、结果是子节点。他有一个问题，就是当我知道A、B、C三个变量之间有相关关系，但是不知道具体是谁依赖谁，或者我不想先假设谁依赖谁，这个时候贝叶斯就画不出来图了。因为贝叶斯网络是通过变量之间的条件分布来建模整个网络的，相关关系是通过依赖关系（条件分布）来表达的。</p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>条件概率分布（Conditional Probability Distribution，或者 条件分布，Conditional Distribution ）是现代概率论中的概念。已知两个相关的随机变量X 和Y，随机变量Y 在条件{X =x}下的条件概率分布是指当已知X 的取值为某个特定值x之时，Y 的概率分布。 如果Y 在条件{X =x}下的条件概率分布是连续分布，那么其密度函数称作Y 在条件{X =x}下的条件概率密度函数（条件分布密度、条件密度函数）。与条件分布有关的概念，常常以“条件”作为前缀，如条件期望、条件方差等等。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><a id="more"></a>
+<p>条件概率分布（Conditional Probability Distribution，或者 条件分布，Conditional Distribution ）是现代概率论中的概念。已知两个相关的随机变量X 和Y，随机变量Y 在条件{X =x}下的条件概率分布是指当已知X 的取值为某个特定值x之时，Y 的概率分布。 如果Y 在条件{X =x}下的条件概率分布是连续分布，那么其密度函数称作Y 在条件{X =x}下的条件概率密度函数（条件分布密度、条件密度函数）。与条件分布有关的概念，常常以“条件”作为前缀，如条件期望、条件方差等等。</p>
 <h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>假设在桌子上抛掷一枚普通的骰子，则其点数结果的概率分布是集合 {\displaystyle {1,2,3,4,5,6}} {1,2,3,4,5,6}的均匀分布：每个点数出现的概率都是均等的六分之一。然而，如果据某个坐在桌边的人观察，向着他的侧面是6点，那么，在此条件下，向上的一面不可能是6点，也不可能是6点对面的1点。因此，在此条件下，抛骰子的点数结果是集合 {\displaystyle {2,3,4,5}} {2,3,4,5}的均匀分布：有四分之一的可能性出现 {\displaystyle 2,3,4,5} 2,3,4,5四种点数中的一种。可以看出，增加的条件或信息量（某个侧面是6点）导致了点数结果的概率分布的变化。这个新的概率分布就是条件概率分布。</p>
 
       
@@ -352,9 +353,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/AI/" rel="tag"># AI</a>
-          
             <a href="/tags/Learn/" rel="tag"># Learn</a>
+          
+            <a href="/tags/AI/" rel="tag"># AI</a>
           
         </div>
       
@@ -377,8 +378,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/24/群的拓扑结构多种多样，网状结构/" rel="prev" title="群的拓扑结构多种多样，网状结构">
-                群的拓扑结构多种多样，网状结构 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/15/教育/" rel="prev" title="教育">
+                教育 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -452,7 +453,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

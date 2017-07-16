@@ -321,8 +321,7 @@
 
       
         <p><a href="http://wiki.jikexueyuan.com/project/tensorflow-zh/get_started/os_setup.html" target="_blank" rel="external">TensorFlow 官方文档中文版</a><br><a href="http://partnerweb.vmware.com/GOSIG/CentOS_7.html" target="_blank" rel="external">VMWare: Guest Operating System Installation Guide &gt;  CentOS 7</a><br><a href="https://docs.docker.com/engine/installation/" target="_blank" rel="external">Install Docker Engine</a><br><a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank" rel="external">Install Docker on CentOS</a><br>使用xsehll连接，失败<br><a href="http://stackoverflow.com/a/25362318/1259018" target="_blank" rel="external">Can not ping or access guest from host - vmware</a><br>安装wget<br><a href="https://teddysun.com/357.html" target="_blank" rel="external">CentOS下shadowsocks-libev一键安装脚本</a><br>MNIST机器学习入门-&gt; </p>
-<hr>
-<p>按照 Docker 最佳实践的要求，容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。所有的文件写入操作，都应该使用 数据卷（Volume）、或者绑定宿主目录，在这些位置的读写会跳过容器存储层，直接对宿主(或网络存储)发生读写，其性能和稳定性更高。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>按照 Docker 最佳实践的要求，容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。所有的文件写入操作，都应该使用 数据卷（Volume）、或者绑定宿主目录，在这些位置的读写会跳过容器存储层，直接对宿主(或网络存储)发生读写，其性能和稳定性更高。</p>
 <p>数据卷的生存周期独立于容器，容器消亡，数据卷不会消亡。因此，使用数据卷后，容器可以随意删除、重新 run，数据却不会丢失。</p>
 <hr>
 <p>回归分析（英语：Regression Analysis）是一种统计学上分析数据的方法，目的在于了解两个或多个变数间是否相关、相关方向与强度，并建立数学模型以便观察特定变数来预测研究者感兴趣的变数。更具体的来说，回归分析可以帮助人们了解在只有一个自变量变化时因变量的变化量。一般来说，通过回归分析我们可以由给出的自变量估计因变量的条件期望。</p>
@@ -434,8 +433,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -450,7 +458,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -488,6 +496,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
