@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/19/技术迷们，你不是Google/index.html">
 <meta property="og:site_name" content="又红又专模式">
 <meta property="og:description" content="这是读You Are Not Google 笔记，对作者指出的问题深有体会，技术迷会很容易会被那些高大上的技术吸引，从而忽略了真正面对的问题。 观点 在尝试解决问题之前先对它们有充分的了解。 那些高大上的技术不一定适合你。 用SSD解决你的问题：D 直接放入内存">
-<meta property="og:updated_time" content="2017-07-19T02:29:36.308Z">
+<meta property="og:updated_time" content="2017-07-19T02:35:27.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技术迷们，你不是Google">
 <meta name="twitter:description" content="这是读You Are Not Google 笔记，对作者指出的问题深有体会，技术迷会很容易会被那些高大上的技术吸引，从而忽略了真正面对的问题。 观点 在尝试解决问题之前先对它们有充分的了解。 那些高大上的技术不一定适合你。 用SSD解决你的问题：D 直接放入内存">
@@ -347,15 +347,63 @@
 <li>那些高大上的技术不一定适合你。</li>
 <li>用SSD解决你的问题：D</li>
 <li>直接放入内存<a id="more"></a>
-<h2 id="错误案例"><a href="#错误案例" class="headerlink" title="错误案例"></a>错误案例</h2>|小公司的场景|选错的大公司技术|大公司 |大公司要场景（解决的问题）|小公司情况分析|小公司真正的方案<br>|—|<br>|PostgreSQL查询需要耗费几分钟的时间|Cassandra|Amazon|保证购物车的高可用性|数据表里有5000万条数据，每条数据最多80个字节。如果从SSD上整块地读取所有数据大概需要5秒钟|耐心的调优，或其它技术|<br>|每天最多几百个的事务|kafka|LinkedIn|几年前就已达到每天数万亿，高峰时段1000万/秒消息|10个数量级的差距||<br>|50个人的公司？|SOA|Amazon|2001年，意识到他们的前端需要横向伸缩，当时有7800个员工和30亿美元的销售规模|<br>|<br>||Hadoop, Spark|Google|解决吞吐量，而不是容量|你真有那么多数据吗？你业务增长超过了SSD降价的速度了吗？<h2 id="好案例："><a href="#好案例：" class="headerlink" title="好案例："></a>好案例：</h2><blockquote>
-<p>截止2016年，Stack Exchange每天要处理2亿个请求，但是他们只用了4个SQL Server，一个用于Stack Overflow，一个用于其他用途，另外两个作为备份复本。</p>
-<h2 id="技术名词："><a href="#技术名词：" class="headerlink" title="技术名词："></a>技术名词：</h2></blockquote>
 </li>
+</ul>
+<h2 id="错误案例"><a href="#错误案例" class="headerlink" title="错误案例"></a>错误案例</h2><table>
+<thead>
+<tr>
+<th>小公司的场景</th>
+<th>选错的大公司技术</th>
+<th>大公司</th>
+<th>大公司要场景（解决的问题）</th>
+<th>小公司情况分析</th>
+<th>小公司真正的方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PostgreSQL查询需要耗费几分钟的时间</td>
+<td>Cassandra</td>
+<td>Amazon</td>
+<td>保证购物车的高可用性</td>
+<td>数据表里有5000万条数据，每条数据最多80个字节。如果从SSD上整块地读取所有数据大概需要5秒钟</td>
+<td>耐心的调优，或其它技术</td>
+</tr>
+<tr>
+<td>每天最多几百个的事务</td>
+<td>kafka</td>
+<td>LinkedIn</td>
+<td>几年前就已达到每天数万亿，高峰时段1000万/秒消息</td>
+<td>10个数量级的差距</td>
+<td></td>
+</tr>
+<tr>
+<td>50个人的公司？</td>
+<td>SOA</td>
+<td>Amazon</td>
+<td>2001年，意识到他们的前端需要横向伸缩，当时有7800个员工和30亿美元的销售规模</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Hadoop, Spark</td>
+<td>Google</td>
+<td>解决吞吐量，而不是容量</td>
+<td>你真有那么多数据吗？你业务增长超过了SSD降价的速度了吗？</td>
+</tr>
+</tbody>
+</table>
+<h2 id="好案例："><a href="#好案例：" class="headerlink" title="好案例："></a>好案例：</h2><blockquote>
+<p>截止2016年，Stack Exchange每天要处理2亿个请求，但是他们只用了4个SQL Server，一个用于Stack Overflow，一个用于其他用途，另外两个作为备份复本。</p>
+</blockquote>
+<h2 id="技术名词："><a href="#技术名词：" class="headerlink" title="技术名词："></a>技术名词：</h2><ul>
 <li>Cassandra - 高可用的键值存储系统</li>
 <li>kafka - 消息中间件，为处理实时数据提供一个统一、高吞吐、低延迟的消息中间件平台</li>
-<li>SOA - 面向服务架构，有助于实现前端/横向伸缩<h2 id="方法论：UNPHAT"><a href="#方法论：UNPHAT" class="headerlink" title="方法论：UNPHAT"></a>方法论：UNPHAT</h2></li>
+<li>SOA - 面向服务架构，有助于实现前端/横向伸缩</li>
 </ul>
-<ol>
+<h2 id="方法论：UNPHAT"><a href="#方法论：UNPHAT" class="headerlink" title="方法论：UNPHAT"></a>方法论：UNPHAT</h2><ol>
 <li>Understand: 别急着找方案，先了解你的问题</li>
 <li>eNumerate：列出多种方案</li>
 <li>Paper：阅读相关论文</li>
