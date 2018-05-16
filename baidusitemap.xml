@@ -34,9 +34,9 @@
         <title>区块链 block chain</title>
         <pubTime>2017-03-11T07:06:00.000Z</pubTime>
         
-        <tag>Blockchain</tag>
-         
         <tag>Learn</tag>
+         
+        <tag>Blockchain</tag>
          
          
            
@@ -53,9 +53,9 @@
         <title>第四次工业革命：人工智能（AI）入门</title>
         <pubTime>2017-03-10T00:10:00.000Z</pubTime>
         
-        <tag>Learn</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Learn</tag>
          
          
            
@@ -72,9 +72,9 @@
         <title>智能合约</title>
         <pubTime>2017-03-21T03:59:00.000Z</pubTime>
         
-        <tag>Blockchain</tag>
-         
         <tag>Learn</tag>
+         
+        <tag>Blockchain</tag>
          
          
            
@@ -91,9 +91,9 @@
         <title>2016年区块链技术回顾与总结：联盟链与公有链的分道扬镳</title>
         <pubTime>2017-04-04T03:20:00.000Z</pubTime>
         
-        <tag>Blockchain</tag>
-         
         <tag>Learn</tag>
+         
+        <tag>Blockchain</tag>
          
          
            
@@ -110,9 +110,9 @@
         <title>陈浩，维优区块链CTO：公有区块链技术实践</title>
         <pubTime>2017-04-04T07:12:00.000Z</pubTime>
         
-        <tag>Blockchain</tag>
-         
         <tag>Learn</tag>
+         
+        <tag>Blockchain</tag>
          
          
            
@@ -129,9 +129,9 @@
         <title>共识机制</title>
         <pubTime>2017-04-04T08:00:00.000Z</pubTime>
         
-        <tag>Blockchain</tag>
-         
         <tag>Learn</tag>
+         
+        <tag>Blockchain</tag>
          
          
            
@@ -148,9 +148,9 @@
         <title>Conditional Random Fields(CRF)条件随机场</title>
         <pubTime>2017-05-04T08:24:00.000Z</pubTime>
         
-        <tag>Learn</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Learn</tag>
          
          
            
@@ -167,9 +167,9 @@
         <title>概率图模型(PGM)</title>
         <pubTime>2017-05-12T06:50:00.000Z</pubTime>
         
-        <tag>Learn</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Learn</tag>
          
          
            
@@ -186,9 +186,9 @@
         <title>深度学习 与 概率图模型</title>
         <pubTime>2017-05-12T08:09:00.000Z</pubTime>
         
-        <tag>Learn</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Learn</tag>
          
          
            
@@ -205,9 +205,9 @@
         <title>条件概率分布</title>
         <pubTime>2017-05-12T08:47:00.000Z</pubTime>
         
-        <tag>Learn</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Learn</tag>
          
          
            
@@ -359,7 +359,7 @@
 
     
   <url>
-    <loc>http://masterxml.github.io/2017/05/15/%E6%95%99%E8%82%B2/</loc>
+    <loc>http://masterxml.github.io/2017/05/15/%E6%95%99%E8%82%B2%20-%20%E5%89%AF%E6%9C%AC/</loc>
     <lastmod>2017-05-15T08:59:00.000Z</lastmod>
     <data>
         <display>
@@ -376,7 +376,7 @@
 
     
   <url>
-    <loc>http://masterxml.github.io/2017/05/15/%E6%95%99%E8%82%B2%20-%20%E5%89%AF%E6%9C%AC/</loc>
+    <loc>http://masterxml.github.io/2017/05/15/%E6%95%99%E8%82%B2/</loc>
     <lastmod>2017-05-15T08:59:00.000Z</lastmod>
     <data>
         <display>
@@ -400,11 +400,11 @@
         <title>区块链与AI大数据</title>
         <pubTime>2017-04-01T09:08:00.000Z</pubTime>
         
-        <tag>Blockchain</tag>
+        <tag>AI</tag>
          
         <tag>Learn</tag>
          
-        <tag>AI</tag>
+        <tag>Blockchain</tag>
          
          
            
