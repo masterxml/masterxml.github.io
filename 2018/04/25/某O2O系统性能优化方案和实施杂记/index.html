@@ -1,0 +1,789 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="jmeter," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="性能优化 这是以前工作中整理的文档，隐去部分内容后发布在这里，供参考。  原则原则1：先保证主要功能及其基础功能，用户不卡顿，然后再考虑其它功能 目标：第一阶段：保证首页和XX功能：无大并发时用户使用不卡顿。第二阶段：保证首页和XX功能：有大并发时用户正常使用不卡顿。第三阶段：保证其它功能：无大并发时用户使用不卡顿。 实施：第一阶段，第一步： （测试）建立可验证的性能测试标准，用来验证优化结果（生">
+<meta name="keywords" content="jmeter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="某O2O系统性能优化方案和实施杂记">
+<meta property="og:url" content="http://masterxml.github.io/2018/04/25/某O2O系统性能优化方案和实施杂记/index.html">
+<meta property="og:site_name" content="又红又专模式">
+<meta property="og:description" content="性能优化 这是以前工作中整理的文档，隐去部分内容后发布在这里，供参考。  原则原则1：先保证主要功能及其基础功能，用户不卡顿，然后再考虑其它功能 目标：第一阶段：保证首页和XX功能：无大并发时用户使用不卡顿。第二阶段：保证首页和XX功能：有大并发时用户正常使用不卡顿。第三阶段：保证其它功能：无大并发时用户使用不卡顿。 实施：第一阶段，第一步： （测试）建立可验证的性能测试标准，用来验证优化结果（生">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-ffc0b63c13d69cc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-6e66b54ffa26a118.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-6ecd0e14ea831704.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-05-16T07:59:40.009Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="某O2O系统性能优化方案和实施杂记">
+<meta name="twitter:description" content="性能优化 这是以前工作中整理的文档，隐去部分内容后发布在这里，供参考。  原则原则1：先保证主要功能及其基础功能，用户不卡顿，然后再考虑其它功能 目标：第一阶段：保证首页和XX功能：无大并发时用户使用不卡顿。第二阶段：保证首页和XX功能：有大并发时用户正常使用不卡顿。第三阶段：保证其它功能：无大并发时用户使用不卡顿。 实施：第一阶段，第一步： （测试）建立可验证的性能测试标准，用来验证优化结果（生">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7902190-ffc0b63c13d69cc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://masterxml.github.io/2018/04/25/某O2O系统性能优化方案和实施杂记/"/>
+
+
+
+
+
+  <title>某O2O系统性能优化方案和实施杂记 | 又红又专模式</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-106127438-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d4ed652dc977459038bdb10ea8ae5200";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">又红又专模式</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">又红又专模式</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2018/04/25/某O2O系统性能优化方案和实施杂记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">某O2O系统性能优化方案和实施杂记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T11:22:23+08:00">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/25/某O2O系统性能优化方案和实施杂记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/25/某O2O系统性能优化方案和实施杂记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><hr>
+<p>这是以前工作中整理的文档，隐去部分内容后发布在这里，供参考。</p>
+<hr>
+<h1 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h1><p>原则1：先保证主要功能及其基础功能，用户不卡顿，然后再考虑其它功能</p>
+<h1 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h1><p>第一阶段：保证首页和XX功能：无大并发时用户使用不卡顿。<br>第二阶段：保证首页和XX功能：有大并发时用户正常使用不卡顿。<br>第三阶段：保证其它功能：无大并发时用户使用不卡顿。</p>
+<h1 id="实施："><a href="#实施：" class="headerlink" title="实施："></a>实施：</h1><h2 id="第一阶段，第一步："><a href="#第一阶段，第一步：" class="headerlink" title="第一阶段，第一步："></a>第一阶段，第一步：</h2><ol>
+<li>（测试）建立可验证的性能测试标准，用来验证优化结果（生成一个Excel表，记录操作的响应时间）</li>
+<li>（后台自查）查找已记录的可自己发现的性能问题，列出来，并与测试工具的情况进行对应。</li>
+<li>（前端自查）异步加载（部分呈现）。<br>第一阶段，第二步：评估方案和开发时间，并在指定时间使用测试工具进行验证，完成每一阶段的工作。<a id="more"></a>
+</li>
+</ol>
+<h2 id="第二阶段：并发保证："><a href="#第二阶段：并发保证：" class="headerlink" title="第二阶段：并发保证："></a>第二阶段：并发保证：</h2><h3 id="并发能力方案："><a href="#并发能力方案：" class="headerlink" title="并发能力方案："></a>并发能力方案：</h3><p>一、确定目标</p>
+<ol>
+<li>系统运行保证的业务模块（典型场景-拼车），及其用户量（并发用户数/日）</li>
+<li>将业务模块，功能点细化到具体的页面和操作，接口，数据量<br>结果：<br>接口或网页列表，目标承载力<br>二、测定现状: 目前各功能点能承载的压力（在不同并发数量和数量时的，响应时间和吞吐量，服务器负载）<br>基准测试：目前系统的响应时间和吞吐率<br>负载测试：找出目前系统的处理能力极限<br>三、性能优化和扩容方案：找到瓶颈，保证可通过增加服务器增加处理能力</li>
+<li>达到目标的方法</li>
+<li>超出目标时情况的处理（）<br>四、实施方案<br>五、验证目标</li>
+<li>确定保证系统运行的功能点。</li>
+<li>确定保证系统</li>
+</ol>
+<h3 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h3><p>产品和市场：确定典型应用场景，给出结果要求有具体的界面操作步骤。<br>压力测试组：基准测试和负载，结果要求：各操作步骤的，在不同并发量下的响应时间和吞吐量。<br>开发：找出性能瓶颈，给出改进方案，并实施。</p>
+<h3 id="细节方式："><a href="#细节方式：" class="headerlink" title="细节方式："></a>细节方式：</h3><p>拼车：算法，定期清理，GEOHash<br>接口要合并。<br>连带数据太多，没有数据还用全部列出<br>优先处理一部分性能问题：</p>
+<ol>
+<li>后台发现的，吃资源的。</li>
+<li>用户体验慢的。</li>
+</ol>
+<p>在不用并发级别时的响应时间<br>代码级别性能排查（哪里在调用性能消耗大的情况）。<br>表数据量哪个大。</p>
+<hr>
+<h1 id="第一阶段：代码性能优化（变更细节）："><a href="#第一阶段：代码性能优化（变更细节）：" class="headerlink" title="第一阶段：代码性能优化（变更细节）："></a>第一阶段：代码性能优化（变更细节）：</h1><ol>
+<li>移除帐户白金卡相关内容</li>
+<li>拼车匹配线路返回线路信息去掉根据订单计算线路状态的查询</li>
+<li>拼车线路的用户批量传入</li>
+<li>拼车线路是否可编辑，只在查询自己线路时计算。</li>
+<li>查询我的线路和订单的方法，支持只查询数量（GetOrderAndRouteStatus慢）</li>
+<li>当前时间改用本地服务器时间而不是从数据库获取</li>
+<li>专家顾问查询使用批量，并去掉不需要的标记(已关注和有交易的标记)。</li>
+<li>获取商家详情：商家是否加入了各种联盟，改为统一处理。</li>
+</ol>
+<h1 id="第一阶段结果"><a href="#第一阶段结果" class="headerlink" title="第一阶段结果"></a>第一阶段结果</h1><p><img src="https://upload-images.jianshu.io/upload_images/7902190-ffc0b63c13d69cc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="慢接口优化结果对比(响应时间减少比例) 12月XX日 VS. 12月XX日"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7902190-6e66b54ffa26a118.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="慢接口优化结果对比(响应时间数值) 12月XX日 VS. 12月XX日"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7902190-6ecd0e14ea831704.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原始数据"></p>
+<h1 id="实施：-1"><a href="#实施：-1" class="headerlink" title="实施："></a>实施：</h1><ol>
+<li>找出最常用的接口，提高其处理速度，减少其资源占用</li>
+<li>找出在循环中访问数据库的地方，改为批量处理（记录数据库查询的次数和时间）</li>
+<li>找出慢查询（记录数据库查询的次数和时间）</li>
+<li>找出方式检测并处理长时间运行的操作，并强制放弃. </li>
+<li>使用异步代码，避免长I/O操作占用所有线程，以至新请求不能处理</li>
+</ol>
+<h2 id="关于取消长时间运行的操作（Asp-net-web-api"><a href="#关于取消长时间运行的操作（Asp-net-web-api" class="headerlink" title="关于取消长时间运行的操作（Asp.net web api)"></a>关于取消长时间运行的操作（Asp.net web api)</h2><ol>
+<li>asp.net Response.IsClientConneccted</li>
+<li>参考：<a href="https://stackoverflow.com/questions/9762445/asp-net-web-api-long-running-operation-cancellation" target="_blank" rel="external">ASP.NET Web API + Long running operation cancellation</a></li>
+</ol>
+<h2 id="基于Interceptor性能测量和调整"><a href="#基于Interceptor性能测量和调整" class="headerlink" title="基于Interceptor性能测量和调整"></a>基于Interceptor性能测量和调整</h2><ul>
+<li>Autofac Interceptor对性能影响评估：thoughput 200/sec -&gt; 300/sec</li>
+<li>数据库查询：MsgCount的操作thoughput仅为58/sec</li>
+<li>使用Interceptor记录数据库查询的次数和时间（）</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jmeter/" rel="tag"># jmeter</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/16/Azure-Service-Fabric试用笔记/" rel="next" title="Azure-Service-Fabric试用笔记">
+                <i class="fa fa-chevron-left"></i> Azure-Service-Fabric试用笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/25/某O2O系统容量分析/" rel="prev" title="某O2O系统容量分析">
+                某O2O系统容量分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div id="sidebar-dimmer"></div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="又红又专模式" />
+          <p class="site-author-name" itemprop="name">又红又专模式</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#性能优化"><span class="nav-number">1.</span> <span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原则"><span class="nav-number">2.</span> <span class="nav-text">原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目标："><span class="nav-number">3.</span> <span class="nav-text">目标：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实施："><span class="nav-number">4.</span> <span class="nav-text">实施：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一阶段，第一步："><span class="nav-number">4.1.</span> <span class="nav-text">第一阶段，第一步：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二阶段：并发保证："><span class="nav-number">4.2.</span> <span class="nav-text">第二阶段：并发保证：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#并发能力方案："><span class="nav-number">4.2.1.</span> <span class="nav-text">并发能力方案：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作："><span class="nav-number">4.2.2.</span> <span class="nav-text">操作：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#细节方式："><span class="nav-number">4.2.3.</span> <span class="nav-text">细节方式：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一阶段：代码性能优化（变更细节）："><span class="nav-number">5.</span> <span class="nav-text">第一阶段：代码性能优化（变更细节）：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一阶段结果"><span class="nav-number">6.</span> <span class="nav-text">第一阶段结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实施：-1"><span class="nav-number">7.</span> <span class="nav-text">实施：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于取消长时间运行的操作（Asp-net-web-api"><span class="nav-number">7.1.</span> <span class="nav-text">关于取消长时间运行的操作（Asp.net web api)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Interceptor性能测量和调整"><span class="nav-number">7.2.</span> <span class="nav-text">基于Interceptor性能测量和调整</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">又红又专模式</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://masterxml.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://masterxml.github.io/2018/04/25/某O2O系统性能优化方案和实施杂记/';
+          this.page.identifier = '2018/04/25/某O2O系统性能优化方案和实施杂记/';
+          this.page.title = '某O2O系统性能优化方案和实施杂记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://masterxml.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

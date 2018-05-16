@@ -3,6 +3,76 @@
 
 
     
+  <url>
+    <loc>http://masterxml.github.io/2018/04/25/%E6%9F%90O2O%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88%E5%92%8C%E5%AE%9E%E6%96%BD%E6%9D%82%E8%AE%B0/</loc>
+    <lastmod>2018-05-16T07:59:40.009Z</lastmod>
+    <data>
+        <display>
+        <title>某O2O系统性能优化方案和实施杂记</title>
+        <pubTime>2018-04-25T03:22:23.000Z</pubTime>
+        
+        <tag>jmeter</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://masterxml.github.io/2018/04/27/%E7%BC%A9%E6%94%BEAzure-Service-Fabric%EF%BC%8C%E7%94%A8jmeter%E8%BF%9B%E8%A1%8C%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2018-05-16T07:59:37.047Z</lastmod>
+    <data>
+        <display>
+        <title>缩放Azure-Service-Fabric，用jmeter进行性能测试</title>
+        <pubTime>2018-04-27T01:08:23.000Z</pubTime>
+        
+        <tag>azure</tag>
+         
+        <tag>jmeter</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://masterxml.github.io/2018/04/16/Azure-Service-Fabric%E8%AF%95%E7%94%A8%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-05-16T07:59:33.720Z</lastmod>
+    <data>
+        <display>
+        <title>Azure-Service-Fabric试用笔记</title>
+        <pubTime>2018-04-16T07:40:23.000Z</pubTime>
+        
+        <tag>azure</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://masterxml.github.io/2018/04/25/%E6%9F%90O2O%E7%B3%BB%E7%BB%9F%E5%AE%B9%E9%87%8F%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2018-05-16T07:53:08.628Z</lastmod>
+    <data>
+        <display>
+        <title>某O2O系统容量分析</title>
+        <pubTime>2018-04-25T04:22:23.000Z</pubTime>
+        
+        <tag>jmeter</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
     
     
   <url>
@@ -34,9 +104,9 @@
         <title>区块链 block chain</title>
         <pubTime>2017-03-11T07:06:00.000Z</pubTime>
         
-        <tag>Learn</tag>
-         
         <tag>Blockchain</tag>
+         
+        <tag>Learn</tag>
          
          
            
@@ -53,9 +123,9 @@
         <title>第四次工业革命：人工智能（AI）入门</title>
         <pubTime>2017-03-10T00:10:00.000Z</pubTime>
         
-        <tag>AI</tag>
-         
         <tag>Learn</tag>
+         
+        <tag>AI</tag>
          
          
            
@@ -72,9 +142,9 @@
         <title>智能合约</title>
         <pubTime>2017-03-21T03:59:00.000Z</pubTime>
         
-        <tag>Learn</tag>
-         
         <tag>Blockchain</tag>
+         
+        <tag>Learn</tag>
          
          
            
@@ -91,9 +161,9 @@
         <title>2016年区块链技术回顾与总结：联盟链与公有链的分道扬镳</title>
         <pubTime>2017-04-04T03:20:00.000Z</pubTime>
         
-        <tag>Learn</tag>
-         
         <tag>Blockchain</tag>
+         
+        <tag>Learn</tag>
          
          
            
@@ -110,9 +180,9 @@
         <title>陈浩，维优区块链CTO：公有区块链技术实践</title>
         <pubTime>2017-04-04T07:12:00.000Z</pubTime>
         
-        <tag>Learn</tag>
-         
         <tag>Blockchain</tag>
+         
+        <tag>Learn</tag>
          
          
            
@@ -129,9 +199,9 @@
         <title>共识机制</title>
         <pubTime>2017-04-04T08:00:00.000Z</pubTime>
         
-        <tag>Learn</tag>
-         
         <tag>Blockchain</tag>
+         
+        <tag>Learn</tag>
          
          
            
@@ -148,9 +218,9 @@
         <title>Conditional Random Fields(CRF)条件随机场</title>
         <pubTime>2017-05-04T08:24:00.000Z</pubTime>
         
-        <tag>AI</tag>
-         
         <tag>Learn</tag>
+         
+        <tag>AI</tag>
          
          
            
@@ -167,9 +237,9 @@
         <title>概率图模型(PGM)</title>
         <pubTime>2017-05-12T06:50:00.000Z</pubTime>
         
-        <tag>AI</tag>
-         
         <tag>Learn</tag>
+         
+        <tag>AI</tag>
          
          
            
@@ -186,9 +256,9 @@
         <title>深度学习 与 概率图模型</title>
         <pubTime>2017-05-12T08:09:00.000Z</pubTime>
         
-        <tag>AI</tag>
-         
         <tag>Learn</tag>
+         
+        <tag>AI</tag>
          
          
            
@@ -205,9 +275,9 @@
         <title>条件概率分布</title>
         <pubTime>2017-05-12T08:47:00.000Z</pubTime>
         
-        <tag>AI</tag>
-         
         <tag>Learn</tag>
+         
+        <tag>AI</tag>
          
          
            
@@ -359,7 +429,7 @@
 
     
   <url>
-    <loc>http://masterxml.github.io/2017/05/15/%E6%95%99%E8%82%B2%20-%20%E5%89%AF%E6%9C%AC/</loc>
+    <loc>http://masterxml.github.io/2017/05/15/%E6%95%99%E8%82%B2/</loc>
     <lastmod>2017-05-15T08:59:00.000Z</lastmod>
     <data>
         <display>
@@ -376,7 +446,7 @@
 
     
   <url>
-    <loc>http://masterxml.github.io/2017/05/15/%E6%95%99%E8%82%B2/</loc>
+    <loc>http://masterxml.github.io/2017/05/15/%E6%95%99%E8%82%B2%20-%20%E5%89%AF%E6%9C%AC/</loc>
     <lastmod>2017-05-15T08:59:00.000Z</lastmod>
     <data>
         <display>
@@ -400,11 +470,11 @@
         <title>区块链与AI大数据</title>
         <pubTime>2017-04-01T09:08:00.000Z</pubTime>
         
-        <tag>AI</tag>
+        <tag>Blockchain</tag>
          
         <tag>Learn</tag>
          
-        <tag>Blockchain</tag>
+        <tag>AI</tag>
          
          
            

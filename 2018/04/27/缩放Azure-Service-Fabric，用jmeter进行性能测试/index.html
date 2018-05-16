@@ -1,0 +1,780 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="azure,jmeter," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="本文记录了使用jmeter对Azure Service Fabric进行压力测试的情况。压力目标为上篇文章里创建完成的示例程序–Voting  节点配置：D1 标准 1 vCPU，3.5 GB，4 数据磁盘，2x500 最大 IOPS，50 GB 本地 SSD    jmeter项目如下图 单记录操作使用固定Url:api/Votes/press01 多记录使用随机函数api/Votes/${__">
+<meta name="keywords" content="azure,jmeter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="缩放Azure-Service-Fabric，用jmeter进行性能测试">
+<meta property="og:url" content="http://masterxml.github.io/2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/index.html">
+<meta property="og:site_name" content="又红又专模式">
+<meta property="og:description" content="本文记录了使用jmeter对Azure Service Fabric进行压力测试的情况。压力目标为上篇文章里创建完成的示例程序–Voting  节点配置：D1 标准 1 vCPU，3.5 GB，4 数据磁盘，2x500 最大 IOPS，50 GB 本地 SSD    jmeter项目如下图 单记录操作使用固定Url:api/Votes/press01 多记录使用随机函数api/Votes/${__">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-6227268ae05994d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-03093bd849adef38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-920d6311f9635a60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-c7cde323605d9b7e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-65df8f588aa27e61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-c8e97b45d9da0607.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-13cde3e2d6ae8d07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-fc9317575fd8f3d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-6e24849541266096.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-ee02a5224e8116a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-05-16T07:59:37.047Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="缩放Azure-Service-Fabric，用jmeter进行性能测试">
+<meta name="twitter:description" content="本文记录了使用jmeter对Azure Service Fabric进行压力测试的情况。压力目标为上篇文章里创建完成的示例程序–Voting  节点配置：D1 标准 1 vCPU，3.5 GB，4 数据磁盘，2x500 最大 IOPS，50 GB 本地 SSD    jmeter项目如下图 单记录操作使用固定Url:api/Votes/press01 多记录使用随机函数api/Votes/${__">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7902190-6227268ae05994d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://masterxml.github.io/2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/"/>
+
+
+
+
+
+  <title>缩放Azure-Service-Fabric，用jmeter进行性能测试 | 又红又专模式</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-106127438-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d4ed652dc977459038bdb10ea8ae5200";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">又红又专模式</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">又红又专模式</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">缩放Azure-Service-Fabric，用jmeter进行性能测试</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T09:08:23+08:00">
+                2018-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文记录了使用jmeter对Azure Service Fabric进行压力测试的情况。压力目标为<a href="https://www.jianshu.com/p/9e74beffe5cd" target="_blank" rel="external">上篇文章</a>里创建完成的示例程序–Voting</p>
+<ol>
+<li>节点配置：D1 标准 1 vCPU，3.5 GB，4 数据磁盘，2x500 最大 IOPS，50 GB 本地 SSD</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/7902190-6227268ae05994d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="节点配置"></p>
+<ul>
+<li>jmeter项目如下图<ol>
+<li>单记录操作使用固定Url:api/Votes/press01</li>
+<li>多记录使用随机函数api/Votes/${__RandomString(2,abcdefg)}</li>
+<li>使用1~300个线程，610秒内启动，差不多每2秒增加一个。</li>
+<li>每个线程PUT添加和GET查询都执行一次<a id="more"></a>
+<img src="https://upload-images.jianshu.io/upload_images/7902190-03093bd849adef38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="jmeter线程组配置"></li>
+</ol>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/7902190-920d6311f9635a60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="jmeter http put操作"></p>
+<h1 id="先测试单记录操作的情况："><a href="#先测试单记录操作的情况：" class="headerlink" title="先测试单记录操作的情况："></a>先测试单记录操作的情况：</h1><p>先测试添加投票的接口，一直投一个票，发现Throughput 在50左右，本地测试也是一样情况，这时监控服务器，发现Cpu和内存都不高，经过分析应该是因为只对一行记录进行写入操作（）。</p>
+<p>看一下响应时间图，如下图，可以看出，当操作单条记录时，响应时间几乎是随并发量线性增长的，操作的用户越多等的时间越长（因为单条记录的读写时间是固定的，在没有缓存和排队的情况下，这是必然现像）。当并发线程为50个时，响应时间在1秒左右，当300个线程时响应时间为5.8秒</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7902190-c7cde323605d9b7e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>但应该不会影响其它投票项的操作（服务器压力一直在20~30%也可以说明这一点。<br><img src="https://upload-images.jianshu.io/upload_images/7902190-65df8f588aa27e61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>吞吐量，见下图，可以看出，几乎保持在58左右，就是说Service Fabric的Statful的存储响应时间应为1/58秒=17毫秒左右。<br>使用随机函数，测试投不同票（写入不同记录）的情况，服务器负载高了，CPU在40%左右<br><img src="https://upload-images.jianshu.io/upload_images/7902190-c8e97b45d9da0607.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>下图为投指定票，随机投票，获取结果三种情况下CUP的负载情况：<br><img src="https://upload-images.jianshu.io/upload_images/7902190-13cde3e2d6ae8d07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="增加节点到2和3个，并依次测试："><a href="#增加节点到2和3个，并依次测试：" class="headerlink" title="增加节点到2和3个，并依次测试："></a>增加节点到2和3个，并依次测试：</h1><p><img src="https://upload-images.jianshu.io/upload_images/7902190-fc9317575fd8f3d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="在Service Fabric Explorer中缩放Web节点"></p>
+<h1 id="生成结果报告并比较结果"><a href="#生成结果报告并比较结果" class="headerlink" title="生成结果报告并比较结果"></a>生成结果报告并比较结果</h1><blockquote>
+<p>.\jmeter -g H:\jmeter_service_fabric_voting\service_fabric-voting.csv -o H:\jmeter_service_fabric_voting\report</p>
+</blockquote>
+<h2 id="压力测试报告结果分析"><a href="#压力测试报告结果分析" class="headerlink" title="压力测试报告结果分析"></a>压力测试报告结果分析</h2><p>我分别在一个节点，2个节点，3个节点下测试了以下3个操作：</p>
+<ul>
+<li>单记录读写操作(put single)</li>
+<li>多记录除随机读写操作(put random)</li>
+<li>多记录查询操作(get)<br><img src="https://upload-images.jianshu.io/upload_images/7902190-6e24849541266096.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="报告"></li>
+</ul>
+<h3 id="单记录操作分析：（不同节点数量变化不大，节点越多，吞吐量反而有略微下降）"><a href="#单记录操作分析：（不同节点数量变化不大，节点越多，吞吐量反而有略微下降）" class="headerlink" title="单记录操作分析：（不同节点数量变化不大，节点越多，吞吐量反而有略微下降）"></a>单记录操作分析：（不同节点数量变化不大，节点越多，吞吐量反而有略微下降）</h3><p>单记录读写的平均响应时间Average Response Times(ms)和吞吐量(Throughput)，在1~3个节点时分别为：</p>
+<ul>
+<li>3022ms，56</li>
+<li>3229ms，57</li>
+<li>3325ms，55<h3 id="多记录操作分析：（每增加一下节点，吞吐量增加1-8倍左右）"><a href="#多记录操作分析：（每增加一下节点，吞吐量增加1-8倍左右）" class="headerlink" title="多记录操作分析：（每增加一下节点，吞吐量增加1.8倍左右）"></a>多记录操作分析：（每增加一下节点，吞吐量增加1.8倍左右）</h3>多记录随机读写的平均响应时间Average Response Times(ms)和吞吐量(Throughput)，在1~3个节点时分别为：</li>
+<li>1个节点：1873ms，102</li>
+<li>2个节点：1017ms，180</li>
+<li>3个节点：743ms，245<h3 id="查询操作：（因为测试用例只获取第一页，所以多节点性能并无明显提升）"><a href="#查询操作：（因为测试用例只获取第一页，所以多节点性能并无明显提升）" class="headerlink" title="查询操作：（因为测试用例只获取第一页，所以多节点性能并无明显提升）"></a>查询操作：（因为测试用例只获取第一页，所以多节点性能并无明显提升）</h3>查询操作的平均响应时间Average Response Times(ms)和吞吐量(Throughput)，在1~3个节点时分别为：</li>
+<li>1个节点：1051ms，237</li>
+<li>2个节点：649ms，279</li>
+<li>3个节点：648ms，280</li>
+</ul>
+<h2 id="不同并发量下的响应时间"><a href="#不同并发量下的响应时间" class="headerlink" title="不同并发量下的响应时间"></a>不同并发量下的响应时间</h2><p>可以看出各种情况下响应时间都是随着并发量增加呈线性增长的。<br><img src="https://upload-images.jianshu.io/upload_images/7902190-ee02a5224e8116a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Time Vs Threads"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/azure/" rel="tag"># azure</a>
+          
+            <a href="/tags/jmeter/" rel="tag"># jmeter</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/25/某O2O系统容量分析/" rel="next" title="某O2O系统容量分析">
+                <i class="fa fa-chevron-left"></i> 某O2O系统容量分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div id="sidebar-dimmer"></div>
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="又红又专模式" />
+          <p class="site-author-name" itemprop="name">又红又专模式</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先测试单记录操作的情况："><span class="nav-number">1.</span> <span class="nav-text">先测试单记录操作的情况：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增加节点到2和3个，并依次测试："><span class="nav-number">2.</span> <span class="nav-text">增加节点到2和3个，并依次测试：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成结果报告并比较结果"><span class="nav-number">3.</span> <span class="nav-text">生成结果报告并比较结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#压力测试报告结果分析"><span class="nav-number">3.1.</span> <span class="nav-text">压力测试报告结果分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单记录操作分析：（不同节点数量变化不大，节点越多，吞吐量反而有略微下降）"><span class="nav-number">3.1.1.</span> <span class="nav-text">单记录操作分析：（不同节点数量变化不大，节点越多，吞吐量反而有略微下降）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多记录操作分析：（每增加一下节点，吞吐量增加1-8倍左右）"><span class="nav-number">3.1.2.</span> <span class="nav-text">多记录操作分析：（每增加一下节点，吞吐量增加1.8倍左右）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询操作：（因为测试用例只获取第一页，所以多节点性能并无明显提升）"><span class="nav-number">3.1.3.</span> <span class="nav-text">查询操作：（因为测试用例只获取第一页，所以多节点性能并无明显提升）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同并发量下的响应时间"><span class="nav-number">3.2.</span> <span class="nav-text">不同并发量下的响应时间</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">又红又专模式</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://masterxml.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://masterxml.github.io/2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/';
+          this.page.identifier = '2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/';
+          this.page.title = '缩放Azure-Service-Fabric，用jmeter进行性能测试';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://masterxml.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

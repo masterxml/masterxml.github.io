@@ -272,6 +272,545 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/" itemprop="url">缩放Azure-Service-Fabric，用jmeter进行性能测试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T09:08:23+08:00">
+                2018-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本文记录了使用jmeter对Azure Service Fabric进行压力测试的情况。压力目标为<a href="https://www.jianshu.com/p/9e74beffe5cd" target="_blank" rel="external">上篇文章</a>里创建完成的示例程序–Voting</p>
+<ol>
+<li>节点配置：D1 标准 1 vCPU，3.5 GB，4 数据磁盘，2x500 最大 IOPS，50 GB 本地 SSD</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/7902190-6227268ae05994d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="节点配置"></p>
+<ul>
+<li>jmeter项目如下图<ol>
+<li>单记录操作使用固定Url:api/Votes/press01</li>
+<li>多记录使用随机函数api/Votes/${__RandomString(2,abcdefg)}</li>
+<li>使用1~300个线程，610秒内启动，差不多每2秒增加一个。</li>
+<li>每个线程PUT添加和GET查询都执行一次
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2018/04/25/某O2O系统容量分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/25/某O2O系统容量分析/" itemprop="url">某O2O系统容量分析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T12:22:23+08:00">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/25/某O2O系统容量分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/25/某O2O系统容量分析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这是以前工作中整理的文档，隐去部分内容后发布在这里，供参考。</p>
+<hr>
+<h1 id="使用时长和每次使用访问的接口数量"><a href="#使用时长和每次使用访问的接口数量" class="headerlink" title="使用时长和每次使用访问的接口数量"></a>使用时长和每次使用访问的接口数量</h1><p>一、 用户平均使用时长为：<strong>121.23秒</strong> 根据友盟数据统计（友盟数据从略）：<br>二、 根据日志统计（日志统计查询SQL从略，将统计结果放入excel进行分析）：</p>
+<ol>
+<li>平均每用户访问接口    <strong>58.73</strong>    次</li>
+<li>思考时间    <strong>2.06</strong>    秒</li>
+<li>平均每接口使用带宽    <strong>17.76</strong>    kbps(不包括图片）</li>
+<li>平均每用户使用带宽    <strong>8.61</strong>    kbps(不包括图片）<br><img src="https://upload-images.jianshu.io/upload_images/7902190-fa035c5a05b83547.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png">
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/25/某O2O系统容量分析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2018/04/25/某O2O系统性能优化方案和实施杂记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/25/某O2O系统性能优化方案和实施杂记/" itemprop="url">某O2O系统性能优化方案和实施杂记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T11:22:23+08:00">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/25/某O2O系统性能优化方案和实施杂记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/25/某O2O系统性能优化方案和实施杂记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><hr>
+<p>这是以前工作中整理的文档，隐去部分内容后发布在这里，供参考。</p>
+<hr>
+<h1 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h1><p>原则1：先保证主要功能及其基础功能，用户不卡顿，然后再考虑其它功能</p>
+<h1 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h1><p>第一阶段：保证首页和XX功能：无大并发时用户使用不卡顿。<br>第二阶段：保证首页和XX功能：有大并发时用户正常使用不卡顿。<br>第三阶段：保证其它功能：无大并发时用户使用不卡顿。</p>
+<h1 id="实施："><a href="#实施：" class="headerlink" title="实施："></a>实施：</h1><h2 id="第一阶段，第一步："><a href="#第一阶段，第一步：" class="headerlink" title="第一阶段，第一步："></a>第一阶段，第一步：</h2><ol>
+<li>（测试）建立可验证的性能测试标准，用来验证优化结果（生成一个Excel表，记录操作的响应时间）</li>
+<li>（后台自查）查找已记录的可自己发现的性能问题，列出来，并与测试工具的情况进行对应。</li>
+<li>（前端自查）异步加载（部分呈现）。<br>第一阶段，第二步：评估方案和开发时间，并在指定时间使用测试工具进行验证，完成每一阶段的工作。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/25/某O2O系统性能优化方案和实施杂记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2018/04/16/Azure-Service-Fabric试用笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/16/Azure-Service-Fabric试用笔记/" itemprop="url">Azure-Service-Fabric试用笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T15:40:23+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/16/Azure-Service-Fabric试用笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/16/Azure-Service-Fabric试用笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="先写下体会总结，"><a href="#先写下体会总结，" class="headerlink" title="先写下体会总结，"></a>先写下体会总结，</h1><ol>
+<li>总体感觉比较复杂，</li>
+<li>中文界面概念翻译不好。</li>
+<li>错误提示友好度不够。</li>
+<li>相关资料很少，只能从生涩的官方文档里揣摩。</li>
+</ol>
+<h1 id="成功后的Service-Fabric-Explorer"><a href="#成功后的Service-Fabric-Explorer" class="headerlink" title="成功后的Service Fabric Explorer:"></a>成功后的Service Fabric Explorer:</h1><p><img src="https://upload-images.jianshu.io/upload_images/7902190-546f3af6be5c624d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Service Fabric Explorer"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/16/Azure-Service-Fabric试用笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2017/07/19/技术迷们，你不是Google/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1045,521 +1584,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2017/05/15/教育/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="又红又专模式">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="又红又专模式">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/15/教育/" itemprop="url">教育</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T16:47:00+08:00">
-                2017-05-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/15/教育/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/15/教育/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>如果我要选择素质教育类，第一选择就是机器人教育。它的第一个特征是师资可以数字化，如果是绘画、钢琴、围棋等等，这些素质教育对名师的依赖是很大的，但是机器人则相反，它对产品和课程会依赖，对名师依赖性相对偏弱的。</p>
-<p>音乐：<br>指法重要。但是最重要的，还是一辈子都喜欢弹琴。一开始为了指法让孩子一辈子都不想摸琴，太不值得了。而绝大部分家长，都是这样干的。<br>技术是为兴趣服务的。</p>
-<ul>
-<li>期望孩子成為音樂家只能起到反作用</li>
-<li>民乐非常看重“童子功”，需要比较早的开始学习，一般在幼儿园就开始学习了<br>管乐则需要孩子有比较好的体力，起步时间较晚，可以在小学中高年级开始。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2017/05/15/教育 - 副本/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="又红又专模式">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="又红又专模式">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/15/教育 - 副本/" itemprop="url">教育</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T16:47:00+08:00">
-                2017-05-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/15/教育 - 副本/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/15/教育 - 副本/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>如果我要选择素质教育类，第一选择就是机器人教育。它的第一个特征是师资可以数字化，如果是绘画、钢琴、围棋等等，这些素质教育对名师的依赖是很大的，但是机器人则相反，它对产品和课程会依赖，对名师依赖性相对偏弱的。</p>
-<p>音乐：<br>指法重要。但是最重要的，还是一辈子都喜欢弹琴。一开始为了指法让孩子一辈子都不想摸琴，太不值得了。而绝大部分家长，都是这样干的。<br>技术是为兴趣服务的。</p>
-<ul>
-<li>期望孩子成為音樂家只能起到反作用</li>
-<li>民乐非常看重“童子功”，需要比较早的开始学习，一般在幼儿园就开始学习了<br>管乐则需要孩子有比较好的体力，起步时间较晚，可以在小学中高年级开始。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2017/05/12/条件概率分布/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="又红又专模式">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="又红又专模式">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/12/条件概率分布/" itemprop="url">条件概率分布</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T16:47:00+08:00">
-                2017-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/12/条件概率分布/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/12/条件概率分布/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p><a href="https://www.zhihu.com/question/35866596/answer/74187736" target="_blank" rel="external">条件随机场-&gt;马尔可夫随机场</a><br>贝叶斯网络每一条边是一个条件概率分布，P(X|Y)，条件是父节点、结果是子节点。他有一个问题，就是当我知道A、B、C三个变量之间有相关关系，但是不知道具体是谁依赖谁，或者我不想先假设谁依赖谁，这个时候贝叶斯就画不出来图了。因为贝叶斯网络是通过变量之间的条件分布来建模整个网络的，相关关系是通过依赖关系（条件分布）来表达的。</p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/12/条件概率分布/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2017/05/12/深度学习-与-概率图模型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="又红又专模式">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="又红又专模式">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/12/深度学习-与-概率图模型/" itemprop="url">深度学习 与 概率图模型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T16:09:00+08:00">
-                2017-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/12/深度学习-与-概率图模型/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/12/深度学习-与-概率图模型/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.csdn.net/article/2015-04-30/2824600" target="_blank" rel="external">CMU博士、MIT博士后及vision.ai联合创始人Tomasz Malisiewicz</a></p>
-<h2 id="人工智能领域三大范式"><a href="#人工智能领域三大范式" class="headerlink" title="人工智能领域三大范式"></a>人工智能领域三大范式</h2><ol>
-<li>逻辑学</li>
-<li>概率方法</li>
-<li>深度学习<br>的演变历程
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/12/深度学习-与-概率图模型/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1610,7 +1634,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1623,7 +1647,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
