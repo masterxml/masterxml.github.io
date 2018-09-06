@@ -272,6 +272,159 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2018/09/06/概念笔记(三) 算力, 浮点运算，时钟周期/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="又红又专模式">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="又红又专模式">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/06/概念笔记(三) 算力, 浮点运算，时钟周期/" itemprop="url">概念笔记(三) 算力, 浮点运算，时钟周期</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-06T10:38:00+08:00">
+                2018-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/06/概念笔记(三) 算力, 浮点运算，时钟周期/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/06/概念笔记(三) 算力, 浮点运算，时钟周期/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="算力"><a href="#算力" class="headerlink" title="算力"></a>算力</h1><h2 id="浮点"><a href="#浮点" class="headerlink" title="浮点"></a>浮点</h2><ul>
+<li>利用浮点（floating point）进行运算称为浮点计算</li>
+<li>浮点，由一个有效数字（即尾数），加上幂数表示，通常是乘以某个基数的整数次指数得到</li>
+<li>这种表示方法类似于基数为10的科学记数法，在计算机上通常使用2为基数的幂数来表示。<br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Float_mantissa_exponent.png/220px-Float_mantissa_exponent.png" alt="十进制浮点数的表示方式"></li>
+<li>计算机使用浮点数运算的主因，在于计算机使用二进位制的运算。（）</li>
+<li>这种表示法的设计，来自于对于值的表现范围，与精密度之间的取舍（例如，一个指数范围为±4的4位十进制浮点数可以用来表示43210，4.321或0.0004321，但是没有足够的精度来表示432.123和43212.3（必须近似为432.1和43210）。当然，实际使用的位数通常远大于4。）</li>
+<li>浮点指的是带有小数的数值，浮点运算即是小数的四则运算，常用来测量计算机运算速度。</li>
+<li>位（bit）是衡量浮点数所需存储空间的单位，通常为32位或64位，分别被叫作单精度和双精度。</li>
+</ul>
+<h2 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h2><ul>
+<li>浮点性能参考指标 (xFLOPS) = 总运算核心数 x 每周期运算次数 x 处理器相对运作频率（ 384 Core x 4 x 800 MHz(0.8 GHz)） </li>
+<li>FLOPS（Floating-point operations per second）每秒浮点运算次数（亦称每秒峰值速度）是每秒所执行的浮点运算次数 –》ENIAC: 300 FLOPS</li>
+<li>MFLOPS（megaFLOPS）一百万（10^6）次的浮点运算</li>
+<li>GFLOPS（gigaFLOPS）–&gt; Intel Core i7 965: 69.23 GFLOPS</li>
+<li>TFLOPS（teraFLOPS）–&gt; Microsoft Xbox One X：6 TFLOPS</li>
+<li>PFLOPS（petaFLOPS）–&gt; 神威太湖之光：93.01 PFLOPS</li>
+<li>EFLOPS（exaFLOPS） –&gt; 比特币全网算力(2013/5) : 1 EFLOPS (2018/5) : 35 EFLOPS</li>
+</ul>
+<h1 id="时钟周期"><a href="#时钟周期" class="headerlink" title="时钟周期"></a>时钟周期</h1><ul>
+<li>时钟脉冲信号，时钟周期（Clock signal)此信号在同步电路当中，扮演计时器的角色，并组成电路的电子组件。只有当同步信号到达时，相关的触发器才按输入信号改变输出状态，因此使得相关的电子组件得以同步运作。</li>
+<li>微处理器，现代计算机的中心组成部分，其依赖于来自<strong>石英晶体谐振器</strong>的时钟</li>
+<li>时钟频率（英语：clock rate）是指同步电路中时钟的基础频率，它以“每秒时钟周期”（clock cycles per second）来度量</li>
+<li>单个时钟周期（现代非嵌入式微处理器的这个时间一般都短于一纳秒）</li>
+<li>在单个时钟周期内逻辑零状态与逻辑一状态来回切换。</li>
+<li>CPU的主频表示在CPU内数字脉冲信号震荡的速度</li>
+<li>有些人试图提高CPU性能，为此他们尝试让CPU运行在一个较高的时钟频率上（超频）</li>
+<li>时钟频率是比较在同一家族内的芯片性能的唯一方法。</li>
+<li>时钟频率不应该被应用在不同计算机或者不同类处理器家族的比较中。而是应该以软件基准测试的结果作为比较的标准。</li>
+<li>不同的处理器在一个周期内能完成的工作是不一样的,</li>
+<li>精简指令集（RISC）处理器的指令要比复杂指令集（CISC）的简单（但是时钟频率要高）、超标量处理机可以在一个周期内执行多条指令，但是它一个周期没有完成多条指令的情况也不少见。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1453,137 +1606,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2017/05/24/群的拓扑结构多种多样，网状结构/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="又红又专模式">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="又红又专模式">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/24/群的拓扑结构多种多样，网状结构/" itemprop="url">群的拓扑结构多种多样，网状结构</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T10:14:00+08:00">
-                2017-05-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/24/群的拓扑结构多种多样，网状结构/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/24/群的拓扑结构多种多样，网状结构/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="拓扑："><a href="#拓扑：" class="headerlink" title="拓扑："></a>拓扑：</h2><ul>
-<li>一个数据的分支：拓扑学(topology)</li>
-<li>是拓扑涫中定义的一个数据概念：拓扑空间</li>
-<li>应用于计算机通信和网络领域：网络拓扑<br><img src="http://static.zybuluo.com/liuruicai/rhxtd32dk1znq1mcol2a5j28/image_1bgs448bj1acr1fto9h7gs0kfd9.png" alt="image_1bgs448bj1acr1fto9h7gs0kfd9.png-64.8kB"></li>
-<li>指网络上电脑、缆线、集线器以及其它设备所组成的整体配置方式。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/24/群的拓扑结构多种多样，网状结构/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1634,7 +1656,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

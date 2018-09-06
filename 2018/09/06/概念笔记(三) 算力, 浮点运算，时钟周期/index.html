@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="azure," />
+  <meta name="keywords" content="Learn," />
 
 
 
@@ -93,25 +93,19 @@
 
 
 
-<meta name="description" content="先写下体会总结， 总体感觉比较复杂， 中文界面概念翻译不好。 错误提示友好度不够。 相关资料很少，只能从生涩的官方文档里揣摩。  成功后的Service Fabric Explorer:">
-<meta name="keywords" content="azure">
+<meta name="description" content="算力浮点 利用浮点（floating point）进行运算称为浮点计算 浮点，由一个有效数字（即尾数），加上幂数表示，通常是乘以某个基数的整数次指数得到 这种表示方法类似于基数为10的科学记数法，在计算机上通常使用2为基数的幂数来表示。 计算机使用浮点数运算的主因，在于计算机使用二进位制的运算。（） 这种表示法的设计，来自于对于值的表现范围，与精密度之间的取舍（例如，一个指数范围为±4的4位十进制">
+<meta name="keywords" content="Learn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Azure-Service-Fabric试用笔记">
-<meta property="og:url" content="http://masterxml.github.io/2018/04/16/Azure-Service-Fabric试用笔记/index.html">
+<meta property="og:title" content="概念笔记(三) 算力, 浮点运算，时钟周期">
+<meta property="og:url" content="http://masterxml.github.io/2018/09/06/概念笔记(三) 算力, 浮点运算，时钟周期/index.html">
 <meta property="og:site_name" content="又红又专模式">
-<meta property="og:description" content="先写下体会总结， 总体感觉比较复杂， 中文界面概念翻译不好。 错误提示友好度不够。 相关资料很少，只能从生涩的官方文档里揣摩。  成功后的Service Fabric Explorer:">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-546f3af6be5c624d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-0489f68f18ca37f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-e5afc852c1668123.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-33cdca8d3c0066bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-46da5a15c6a67b5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-bac6382562d4c6d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/7902190-c046d234f630f3de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-05-16T07:59:33.720Z">
+<meta property="og:description" content="算力浮点 利用浮点（floating point）进行运算称为浮点计算 浮点，由一个有效数字（即尾数），加上幂数表示，通常是乘以某个基数的整数次指数得到 这种表示方法类似于基数为10的科学记数法，在计算机上通常使用2为基数的幂数来表示。 计算机使用浮点数运算的主因，在于计算机使用二进位制的运算。（） 这种表示法的设计，来自于对于值的表现范围，与精密度之间的取舍（例如，一个指数范围为±4的4位十进制">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Float_mantissa_exponent.png/220px-Float_mantissa_exponent.png">
+<meta property="og:updated_time" content="2018-09-06T03:23:46.352Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Azure-Service-Fabric试用笔记">
-<meta name="twitter:description" content="先写下体会总结， 总体感觉比较复杂， 中文界面概念翻译不好。 错误提示友好度不够。 相关资料很少，只能从生涩的官方文档里揣摩。  成功后的Service Fabric Explorer:">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/7902190-546f3af6be5c624d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="概念笔记(三) 算力, 浮点运算，时钟周期">
+<meta name="twitter:description" content="算力浮点 利用浮点（floating point）进行运算称为浮点计算 浮点，由一个有效数字（即尾数），加上幂数表示，通常是乘以某个基数的整数次指数得到 这种表示方法类似于基数为10的科学记数法，在计算机上通常使用2为基数的幂数来表示。 计算机使用浮点数运算的主因，在于计算机使用二进位制的运算。（） 这种表示法的设计，来自于对于值的表现范围，与精密度之间的取舍（例如，一个指数范围为±4的4位十进制">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Float_mantissa_exponent.png/220px-Float_mantissa_exponent.png">
 
 
 
@@ -139,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://masterxml.github.io/2018/04/16/Azure-Service-Fabric试用笔记/"/>
+  <link rel="canonical" href="http://masterxml.github.io/2018/09/06/概念笔记(三) 算力, 浮点运算，时钟周期/"/>
 
 
 
 
 
-  <title>Azure-Service-Fabric试用笔记 | 又红又专模式</title>
+  <title>概念笔记(三) 算力, 浮点运算，时钟周期 | 又红又专模式</title>
   
 
 
@@ -283,7 +277,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2018/04/16/Azure-Service-Fabric试用笔记/">
+    <link itemprop="mainEntityOfPage" href="http://masterxml.github.io/2018/09/06/概念笔记(三) 算力, 浮点运算，时钟周期/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="又红又专模式">
@@ -300,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Azure-Service-Fabric试用笔记</h1>
+          <h1 class="post-title" itemprop="name headline">概念笔记(三) 算力, 浮点运算，时钟周期</h1>
         
 
         <div class="post-meta">
@@ -312,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T15:40:23+08:00">
-                2018-04-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-06T10:38:00+08:00">
+                2018-09-06
               </time>
             
 
@@ -331,9 +325,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/16/Azure-Service-Fabric试用笔记/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/06/概念笔记(三) 算力, 浮点运算，时钟周期/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/16/Azure-Service-Fabric试用笔记/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/06/概念笔记(三) 算力, 浮点运算，时钟周期/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -358,44 +352,36 @@
       
 
       
-        <h1 id="先写下体会总结，"><a href="#先写下体会总结，" class="headerlink" title="先写下体会总结，"></a>先写下体会总结，</h1><ol>
-<li>总体感觉比较复杂，</li>
-<li>中文界面概念翻译不好。</li>
-<li>错误提示友好度不够。</li>
-<li>相关资料很少，只能从生涩的官方文档里揣摩。</li>
-</ol>
-<h1 id="成功后的Service-Fabric-Explorer"><a href="#成功后的Service-Fabric-Explorer" class="headerlink" title="成功后的Service Fabric Explorer:"></a>成功后的Service Fabric Explorer:</h1><p><img src="https://upload-images.jianshu.io/upload_images/7902190-546f3af6be5c624d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Service Fabric Explorer"><br><a id="more"></a></p>
-<h1 id="下载和生成项目"><a href="#下载和生成项目" class="headerlink" title="下载和生成项目"></a>下载和生成项目</h1><ol>
-<li>按照入门文档，一开始使用的国际版，后来发现找不到bower，改用<a href="https://docs.azure.cn/zh-cn/service-fabric/service-fabric-quickstart-dotnet" target="_blank" rel="external">国内版文档</a>，直接使用github上的源代码。<br>#申请azure试用<br>注意身份证和支付信息都不能是以前申请过的<br>#创建Service Fabric cluser<br>有两种方式:,</li>
-</ol>
-<ul>
-<li>一种是直接在visual studio中创建，</li>
-<li>另一种是在azure控制台创建（推荐）。<h2 id="这里遇到几个坑记录一下："><a href="#这里遇到几个坑记录一下：" class="headerlink" title="这里遇到几个坑记录一下："></a>这里遇到几个坑记录一下：</h2></li>
+        <h1 id="算力"><a href="#算力" class="headerlink" title="算力"></a>算力</h1><h2 id="浮点"><a href="#浮点" class="headerlink" title="浮点"></a>浮点</h2><ul>
+<li>利用浮点（floating point）进行运算称为浮点计算</li>
+<li>浮点，由一个有效数字（即尾数），加上幂数表示，通常是乘以某个基数的整数次指数得到</li>
+<li>这种表示方法类似于基数为10的科学记数法，在计算机上通常使用2为基数的幂数来表示。<br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Float_mantissa_exponent.png/220px-Float_mantissa_exponent.png" alt="十进制浮点数的表示方式"></li>
+<li>计算机使用浮点数运算的主因，在于计算机使用二进位制的运算。（）</li>
+<li>这种表示法的设计，来自于对于值的表现范围，与精密度之间的取舍（例如，一个指数范围为±4的4位十进制浮点数可以用来表示43210，4.321或0.0004321，但是没有足够的精度来表示432.123和43212.3（必须近似为432.1和43210）。当然，实际使用的位数通常远大于4。）</li>
+<li>浮点指的是带有小数的数值，浮点运算即是小数的四则运算，常用来测量计算机运算速度。</li>
+<li>位（bit）是衡量浮点数所需存储空间的单位，通常为32位或64位，分别被叫作单精度和双精度。</li>
 </ul>
-<ol>
-<li>servcie fabric创建需要一段时间，但目前没有足够的机制反馈是否完成，我一开始总是创建完成后就急于发布，结果遇到各种奇怪问题。验证Cluser部署完成的方式是在azure的控制台的Service Fabric中查看状态<br><img src="https://upload-images.jianshu.io/upload_images/7902190-0489f68f18ca37f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Azure 控制台Service Fabric状态"></li>
-<li><p>记得开放8080端口，创建时默认开放80和83端口，但示例程序配置的是8080端口。<br><img src="https://upload-images.jianshu.io/upload_images/7902190-e5afc852c1668123.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="VS中的界面"></p>
-</li>
-<li><p>开启反向代理。如果使用visusal studio 2017创建，没有这个选项，所以建议使用azure控制台创建。如果不开启反向代理会造成votingweb不能访问votingdata的api的情况，现像就是投票界面可以显示但是点击【Add】按钮没有反应。参见：<a href="https://docs.azure.cn/zh-cn/load-balancer/load-balancer-get-started-internet-portal#create-a-probe-lb-rule-and-nat-rules" target="_blank" rel="external">负载均衡的端口映射</a></p>
-</li>
-</ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/7902190-33cdca8d3c0066bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Azure 控制台创建Service Fabric时设计自定义终结点8080，启用反向代理"></p>
-<ol>
-<li><p>如果使用azure控制台，创建完成的最后一步记得下载证书，并在开发机器上安装，这样能能从visual stuido中发布程序到 Azure Service Fabric，参见：<a href="https://docs.azure.cn/zh-cn/service-fabric/service-fabric-visualstudio-configure-secure-connections" target="_blank" rel="external">从 Visual Studio 配置与 Service Fabric 群集的安全连接</a><br><img src="https://upload-images.jianshu.io/upload_images/7902190-46da5a15c6a67b5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="下载pfx证书"></p>
-</li>
-<li><p>试用的vm最多提供4个，但创建Service Fabric时默认是5个，所以会报错：“”，改成3个节点就行了。<br><img src="https://upload-images.jianshu.io/upload_images/7902190-bac6382562d4c6d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="初始VM规模集容量"></p>
-</li>
-</ol>
-<h1 id="Service-Fabric需要的资源"><a href="#Service-Fabric需要的资源" class="headerlink" title="Service Fabric需要的资源"></a>Service Fabric需要的资源</h1><p>创建一个Service Fabric所需要的资源如下：</p>
-<ul>
-<li>公共 IP 地址 </li>
-<li>负载均衡器 </li>
-<li>虚拟机规模集 </li>
-<li>网络接口 </li>
-<li>网络安全组 </li>
-<li>2个存储帐户</li>
-<li>虚拟网络 </li>
-<li>密钥保管库<br>如图：<br><img src="https://upload-images.jianshu.io/upload_images/7902190-c046d234f630f3de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="资源组"></li>
+<h2 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h2><ul>
+<li>浮点性能参考指标 (xFLOPS) = 总运算核心数 x 每周期运算次数 x 处理器相对运作频率（ 384 Core x 4 x 800 MHz(0.8 GHz)） </li>
+<li>FLOPS（Floating-point operations per second）每秒浮点运算次数（亦称每秒峰值速度）是每秒所执行的浮点运算次数 –》ENIAC: 300 FLOPS</li>
+<li>MFLOPS（megaFLOPS）一百万（10^6）次的浮点运算</li>
+<li>GFLOPS（gigaFLOPS）–&gt; Intel Core i7 965: 69.23 GFLOPS</li>
+<li>TFLOPS（teraFLOPS）–&gt; Microsoft Xbox One X：6 TFLOPS</li>
+<li>PFLOPS（petaFLOPS）–&gt; 神威太湖之光：93.01 PFLOPS</li>
+<li>EFLOPS（exaFLOPS） –&gt; 比特币全网算力(2013/5) : 1 EFLOPS (2018/5) : 35 EFLOPS</li>
+</ul>
+<h1 id="时钟周期"><a href="#时钟周期" class="headerlink" title="时钟周期"></a>时钟周期</h1><ul>
+<li>时钟脉冲信号，时钟周期（Clock signal)此信号在同步电路当中，扮演计时器的角色，并组成电路的电子组件。只有当同步信号到达时，相关的触发器才按输入信号改变输出状态，因此使得相关的电子组件得以同步运作。</li>
+<li>微处理器，现代计算机的中心组成部分，其依赖于来自<strong>石英晶体谐振器</strong>的时钟</li>
+<li>时钟频率（英语：clock rate）是指同步电路中时钟的基础频率，它以“每秒时钟周期”（clock cycles per second）来度量</li>
+<li>单个时钟周期（现代非嵌入式微处理器的这个时间一般都短于一纳秒）</li>
+<li>在单个时钟周期内逻辑零状态与逻辑一状态来回切换。</li>
+<li>CPU的主频表示在CPU内数字脉冲信号震荡的速度</li>
+<li>有些人试图提高CPU性能，为此他们尝试让CPU运行在一个较高的时钟频率上（超频）</li>
+<li>时钟频率是比较在同一家族内的芯片性能的唯一方法。</li>
+<li>时钟频率不应该被应用在不同计算机或者不同类处理器家族的比较中。而是应该以软件基准测试的结果作为比较的标准。</li>
+<li>不同的处理器在一个周期内能完成的工作是不一样的,</li>
+<li>精简指令集（RISC）处理器的指令要比复杂指令集（CISC）的简单（但是时钟频率要高）、超标量处理机可以在一个周期内执行多条指令，但是它一个周期没有完成多条指令的情况也不少见。</li>
 </ul>
 
       
@@ -426,7 +412,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/azure/" rel="tag"># azure</a>
+            <a href="/tags/Learn/" rel="tag"># Learn</a>
           
         </div>
       
@@ -439,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/19/技术迷们，你不是Google/" rel="next" title="技术迷们，你不是Google">
-                <i class="fa fa-chevron-left"></i> 技术迷们，你不是Google
+              <a href="/2018/04/27/缩放Azure-Service-Fabric，用jmeter进行性能测试/" rel="next" title="缩放Azure-Service-Fabric，用jmeter进行性能测试">
+                <i class="fa fa-chevron-left"></i> 缩放Azure-Service-Fabric，用jmeter进行性能测试
               </a>
             
           </div>
@@ -448,10 +434,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/25/某O2O系统性能优化方案和实施杂记/" rel="prev" title="某O2O系统性能优化方案和实施杂记">
-                某O2O系统性能优化方案和实施杂记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -579,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先写下体会总结，"><span class="nav-number">1.</span> <span class="nav-text">先写下体会总结，</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#成功后的Service-Fabric-Explorer"><span class="nav-number">2.</span> <span class="nav-text">成功后的Service Fabric Explorer:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下载和生成项目"><span class="nav-number">3.</span> <span class="nav-text">下载和生成项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这里遇到几个坑记录一下："><span class="nav-number">3.1.</span> <span class="nav-text">这里遇到几个坑记录一下：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Fabric需要的资源"><span class="nav-number">4.</span> <span class="nav-text">Service Fabric需要的资源</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算力"><span class="nav-number">1.</span> <span class="nav-text">算力</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点"><span class="nav-number">1.1.</span> <span class="nav-text">浮点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单位"><span class="nav-number">1.2.</span> <span class="nav-text">单位</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时钟周期"><span class="nav-number">2.</span> <span class="nav-text">时钟周期</span></a></li></ol></div>
             
 
           </div>
@@ -722,9 +704,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://masterxml.github.io/2018/04/16/Azure-Service-Fabric试用笔记/';
-          this.page.identifier = '2018/04/16/Azure-Service-Fabric试用笔记/';
-          this.page.title = 'Azure-Service-Fabric试用笔记';
+          this.page.url = 'http://masterxml.github.io/2018/09/06/概念笔记(三) 算力, 浮点运算，时钟周期/';
+          this.page.identifier = '2018/09/06/概念笔记(三) 算力, 浮点运算，时钟周期/';
+          this.page.title = '概念笔记(三) 算力, 浮点运算，时钟周期';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://masterxml.disqus.com/embed.js';
